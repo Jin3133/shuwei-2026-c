@@ -1,0 +1,496 @@
+{
+  "experiment_id": "20261120_03_q2_reobservation_sweep",
+  "git_revision": "50dccba646a693fea985c6fb95f3a7ccb214ff40",
+  "conditions": {
+    "split": "validation",
+    "return_delay_s": 0.2,
+    "request_cost": 1.0,
+    "request_budget": 2,
+    "fixed_interval_s": 0.5,
+    "selection_objective": "mean_path_error_m + 0.02 * mean_requests"
+  },
+  "aggregate": [
+    {
+      "policy": "fixed_interval",
+      "n": 3926,
+      "mean_path_error_m": 0.05171137145486792,
+      "mean_endpoint_error_m": 0.08969034899452659,
+      "mean_requests": 1.1477330616403465,
+      "mean_cost": 1.1477330616403465,
+      "mean_wait_exposure_s": 0.22954661232806933,
+      "selection_objective": 0.07466603268767485
+    },
+    {
+      "policy": "no_request",
+      "n": 3926,
+      "mean_path_error_m": 0.07017852557571996,
+      "mean_endpoint_error_m": 0.12697659099366262,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure_s": 0.0,
+      "selection_objective": 0.07017852557571996
+    },
+    {
+      "policy": "uncertainty_0.05",
+      "n": 3926,
+      "mean_path_error_m": 0.05857357363277441,
+      "mean_endpoint_error_m": 0.11755468270755338,
+      "mean_requests": 1.793428425878757,
+      "mean_cost": 1.793428425878757,
+      "mean_wait_exposure_s": 0.35868568517575145,
+      "selection_objective": 0.09444214215034955
+    },
+    {
+      "policy": "uncertainty_0.10",
+      "n": 3926,
+      "mean_path_error_m": 0.05306678835686408,
+      "mean_endpoint_error_m": 0.09583823841184712,
+      "mean_requests": 1.381049414161997,
+      "mean_cost": 1.381049414161997,
+      "mean_wait_exposure_s": 0.2762098828323994,
+      "selection_objective": 0.08068777664010401
+    },
+    {
+      "policy": "uncertainty_0.15",
+      "n": 3926,
+      "mean_path_error_m": 0.0517624629434466,
+      "mean_endpoint_error_m": 0.09134536432761681,
+      "mean_requests": 1.381049414161997,
+      "mean_cost": 1.381049414161997,
+      "mean_wait_exposure_s": 0.2762098828323994,
+      "selection_objective": 0.07938345122668654
+    },
+    {
+      "policy": "uncertainty_0.20",
+      "n": 3926,
+      "mean_path_error_m": 0.05486454137920396,
+      "mean_endpoint_error_m": 0.0842229440313233,
+      "mean_requests": 0.9719816607233825,
+      "mean_cost": 0.9719816607233825,
+      "mean_wait_exposure_s": 0.19439633214467655,
+      "selection_objective": 0.07430417459367161
+    },
+    {
+      "policy": "uncertainty_0.25",
+      "n": 3926,
+      "mean_path_error_m": 0.05898440550827077,
+      "mean_endpoint_error_m": 0.08325897293691488,
+      "mean_requests": 0.7763627101375445,
+      "mean_cost": 0.7763627101375445,
+      "mean_wait_exposure_s": 0.15527254202750895,
+      "selection_objective": 0.07451165971102167
+    },
+    {
+      "policy": "uncertainty_0.30",
+      "n": 3926,
+      "mean_path_error_m": 0.06059150706503555,
+      "mean_endpoint_error_m": 0.09978437844268179,
+      "mean_requests": 0.38436067244014266,
+      "mean_cost": 0.38436067244014266,
+      "mean_wait_exposure_s": 0.07687213448802854,
+      "selection_objective": 0.0682787205138384
+    }
+  ],
+  "by_duration": [
+    {
+      "mask_duration_s": 0.2,
+      "policy": "fixed_interval",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "no_request",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.05",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.10",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.15",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.20",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.25",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "uncertainty_0.30",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "fixed_interval",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.4282178217821782,
+      "mean_cost": 0.4282178217821782,
+      "mean_wait_exposure": 0.08564356435643564
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "no_request",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.05",
+      "n": 808,
+      "mean_path_error": 0.03262953618385566,
+      "mean_endpoint_error": 0.05299583817395941,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.10",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.15",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.20",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.25",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "uncertainty_0.30",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "fixed_interval",
+      "n": 798,
+      "mean_path_error": 0.057404854698657776,
+      "mean_endpoint_error": 0.09344755113576733,
+      "mean_requests": 1.431077694235589,
+      "mean_cost": 1.431077694235589,
+      "mean_wait_exposure": 0.28621553884711776
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "no_request",
+      "n": 798,
+      "mean_path_error": 0.0724121742366112,
+      "mean_endpoint_error": 0.13745362221918106,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.05",
+      "n": 798,
+      "mean_path_error": 0.05202717524541145,
+      "mean_endpoint_error": 0.10417703684874806,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.10",
+      "n": 798,
+      "mean_path_error": 0.053805798061891744,
+      "mean_endpoint_error": 0.05028107973432024,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.15",
+      "n": 798,
+      "mean_path_error": 0.057274173097245265,
+      "mean_endpoint_error": 0.09648794070997405,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.20",
+      "n": 798,
+      "mean_path_error": 0.06341950470708818,
+      "mean_endpoint_error": 0.062146908363051465,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.25",
+      "n": 798,
+      "mean_path_error": 0.0724121742366112,
+      "mean_endpoint_error": 0.13745362221918106,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "uncertainty_0.30",
+      "n": 798,
+      "mean_path_error": 0.0724121742366112,
+      "mean_endpoint_error": 0.13745362221918106,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "fixed_interval",
+      "n": 768,
+      "mean_path_error": 0.06801477500241032,
+      "mean_endpoint_error": 0.09265778504186055,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "no_request",
+      "n": 768,
+      "mean_path_error": 0.10347076123684372,
+      "mean_endpoint_error": 0.18707728229618667,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.05",
+      "n": 768,
+      "mean_path_error": 0.0836496337254694,
+      "mean_endpoint_error": 0.18098999285083414,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.10",
+      "n": 768,
+      "mean_path_error": 0.06904968031970303,
+      "mean_endpoint_error": 0.1381559296202824,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.15",
+      "n": 768,
+      "mean_path_error": 0.06788688464354385,
+      "mean_endpoint_error": 0.09583156721225687,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.20",
+      "n": 768,
+      "mean_path_error": 0.07936560913271277,
+      "mean_endpoint_error": 0.1485092071595403,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.25",
+      "n": 768,
+      "mean_path_error": 0.07988979164610553,
+      "mean_endpoint_error": 0.12415148759993723,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "uncertainty_0.30",
+      "n": 768,
+      "mean_path_error": 0.08480977729340218,
+      "mean_endpoint_error": 0.09587753643835405,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "fixed_interval",
+      "n": 741,
+      "mean_path_error": 0.0851747215754917,
+      "mean_endpoint_error": 0.1705330710481008,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "no_request",
+      "n": 741,
+      "mean_path_error": 0.13010860640563132,
+      "mean_endpoint_error": 0.22283370191547117,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.05",
+      "n": 741,
+      "mean_path_error": 0.11610657481135742,
+      "mean_endpoint_error": 0.23616842808539085,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.10",
+      "n": 741,
+      "mean_path_error": 0.09515934596104551,
+      "mean_endpoint_error": 0.20243709668174079,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.15",
+      "n": 741,
+      "mean_path_error": 0.0857187011945153,
+      "mean_endpoint_error": 0.17273805702735975,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.20",
+      "n": 741,
+      "mean_path_error": 0.08363924762696748,
+      "mean_endpoint_error": 0.11738730702747074,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.25",
+      "n": 741,
+      "mean_path_error": 0.09523960405864257,
+      "mean_endpoint_error": 0.05642566120822144,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "uncertainty_0.30",
+      "n": 741,
+      "mean_path_error": 0.0986551664536962,
+      "mean_endpoint_error": 0.17328549455199582,
+      "mean_requests": 1.0,
+      "mean_cost": 1.0,
+      "mean_wait_exposure": 0.19999999999999998
+    }
+  ]
+}

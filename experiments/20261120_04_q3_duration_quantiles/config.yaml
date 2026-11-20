@@ -1,0 +1,20 @@
+experiment_id: 20261120_04_q3_duration_quantiles
+purpose: Test whether disclosed numerical prefixes improve duration quantiles beyond family medians.
+train_split: train
+evaluation_split: validation
+prefixes_s: [0.2, 0.6, 1.0]
+quantiles: [0.5, 0.8, 0.9]
+methods: [family_quantile, gradient_boosting_quantile]
+source: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+features:
+  categorical: [family_id]
+  excluded: [prefix_id, segment_id, episode_uuid, dataset, split, target_duration_s]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+information_rule: Only current prefix features, family and prefix duration are model inputs. IDs and target duration are excluded.
+
