@@ -1,0 +1,22 @@
+experiment_id: 20261121_10_q3_separate_prefix_models
+purpose: Test whether fitting one duration model per visible prefix increases the value of later observations.
+source: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+official_records: work/official_index_audit/official_records.csv
+train_split: train
+evaluation_split: validation
+prefixes_s: [0.2, 0.6, 1.0]
+quantiles: [0.5, 0.8]
+n_group_folds: 4
+features:
+  categorical: [family_id]
+  excluded: [prefix_id, segment_id, episode_uuid, dataset, split, target_duration_s, prefix_duration_s]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+calibration:
+  type: additive_quantile_residual
+  fitted_from: prefix_specific_train_environment_group_oof
