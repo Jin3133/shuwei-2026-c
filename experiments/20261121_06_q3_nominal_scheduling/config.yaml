@@ -1,0 +1,27 @@
+experiment_id: 20261121_06_q3_nominal_scheduling
+purpose: Compare family and calibrated GBDT duration quantiles in paired nominal Q3 scheduling trials without paid reviews.
+task_root: /Users/j/Documents/study/数维杯/C_Problem_Data/C_Problem_Data/Restocking_Problem_and_Data/Restocking_Tasks_and_Constraints
+features: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+calibration_results: experiments/20261121_05_q3_oof_calibration/results.json
+train_split: train
+evaluation_split: validation
+prefix_s: 0.2
+quantiles: [0.5, 0.8]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+policies:
+  - family_q80
+  - calibrated_gbdt_q80
+ordering:
+  rule: apparent_tardiness_cost
+  lookahead_factor: 2.0
+reviews_enabled: false
+scenario:
+  alpha: 1.0
+  beta_s: 0.5
+information_rule: Fit predictions and calibration on train only; validation durations are hidden from the policy and used only by the simulator.

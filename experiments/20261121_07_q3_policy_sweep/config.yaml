@@ -1,0 +1,32 @@
+experiment_id: 20261121_07_q3_policy_sweep
+purpose: Tune only the scheduling rule and reservation conservatism using the frozen calibrated GBDT duration model.
+task_root: /Users/j/Documents/study/数维杯/C_Problem_Data/C_Problem_Data/Restocking_Problem_and_Data/Restocking_Tasks_and_Constraints
+features: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+calibration_results: experiments/20261121_05_q3_oof_calibration/results.json
+train_split: train
+evaluation_split: validation
+prefix_s: 0.2
+quantiles: [0.5, 0.8]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+policies:
+  - {name: atc_r025, predictor: calibrated_gbdt_q80, ordering: apparent_tardiness_cost, reserve_fraction: 0.25}
+  - {name: atc_r050, predictor: calibrated_gbdt_q80, ordering: apparent_tardiness_cost, reserve_fraction: 0.50}
+  - {name: atc_r075, predictor: calibrated_gbdt_q80, ordering: apparent_tardiness_cost, reserve_fraction: 0.75}
+  - {name: edd_r025, predictor: calibrated_gbdt_q80, ordering: earliest_due_date, reserve_fraction: 0.25}
+  - {name: edd_r050, predictor: calibrated_gbdt_q80, ordering: earliest_due_date, reserve_fraction: 0.50}
+  - {name: wedd_r025, predictor: calibrated_gbdt_q80, ordering: weighted_earliest_due_date, reserve_fraction: 0.25}
+  - {name: wedd_r050, predictor: calibrated_gbdt_q80, ordering: weighted_earliest_due_date, reserve_fraction: 0.50}
+ordering:
+  rule: apparent_tardiness_cost
+  lookahead_factor: 2.0
+reviews_enabled: false
+scenario:
+  alpha: 1.0
+  beta_s: 0.5
+information_rule: All candidates use the same frozen train-only model; validation is used only to select the scheduling policy.

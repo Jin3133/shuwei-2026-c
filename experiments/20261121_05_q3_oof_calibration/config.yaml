@@ -1,0 +1,25 @@
+experiment_id: 20261121_05_q3_oof_calibration
+purpose: Calibrate duration quantiles from train-only out-of-fold residuals and evaluate frozen predictions on validation.
+train_split: train
+evaluation_split: validation
+prefixes_s: [0.2, 0.6, 1.0]
+quantiles: [0.5, 0.8, 0.9]
+n_group_folds: 4
+source: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+official_records: work/official_index_audit/official_records.csv
+features:
+  categorical: [family_id]
+  excluded: [prefix_id, segment_id, episode_uuid, dataset, split, target_duration_s]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+calibration:
+  type: additive_quantile_residual
+  grouping: prefix_duration_s
+  fitted_from: train_environment_group_oof
+information_rule: Validation targets are used only for final evaluation, never for fitting the model or calibration correction.
+
