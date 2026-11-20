@@ -1,0 +1,13 @@
+experiment_id: 20261120_01_q2_direct_mask
+purpose: Compare direct endpoint prediction under artificial masks at horizons natively supported by the trained model.
+split: validation
+mask_durations_s: [0.2, 0.5, 1.0]
+methods: [last_position, constant_velocity, gaussian_gru]
+model_config: configs/q1_delivery_gru_gaussian.yaml
+checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+normalization: work/incoming/model_delivery_20261120/model-delivery/normalization.json
+calibration_report: work/results/q1_delivery_gru_gaussian_validation.json
+private_scoring_table: work/incoming/model_delivery_20261120/model-delivery/q2_masks.parquet
+information_rule: Model receives history_position, history_velocity, history_quality, hand and mask start only. Target fields are used after prediction for scoring.
+seed: 2026
+

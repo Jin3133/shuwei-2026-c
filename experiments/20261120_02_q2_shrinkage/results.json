@@ -1,0 +1,116 @@
+{
+  "experiment_id": "20261120_02_q2_shrinkage",
+  "git_revision": "ec35df607362b19bfd9c35e2b724b846e43d5220",
+  "split": "validation",
+  "checkpoint_epoch": 27,
+  "results": [
+    {
+      "mask_duration_s": 0.2,
+      "method": "last_position",
+      "n": 811,
+      "mean_error_m": 0.04078882355090011,
+      "rmse_m": 0.05594653545862891,
+      "p90_error_m": 0.092336158232553
+    },
+    {
+      "mask_duration_s": 0.2,
+      "method": "constant_velocity",
+      "n": 811,
+      "mean_error_m": 0.03029990476223272,
+      "rmse_m": 0.04088330185050739,
+      "p90_error_m": 0.06105027189508372
+    },
+    {
+      "mask_duration_s": 0.2,
+      "method": "gaussian_gru",
+      "n": 811,
+      "mean_error_m": 0.02679736423836954,
+      "rmse_m": 0.03689563382734877,
+      "p90_error_m": 0.053767413122818915,
+      "calibrated_coverage": 0.8964241676942046,
+      "mean_calibrated_radius_m": 0.050645108209814715
+    },
+    {
+      "mask_duration_s": 0.2,
+      "method": "shrunk_gaussian_gru",
+      "n": 811,
+      "shrinkage_alpha": 0.8909872555359949,
+      "selection_note": "alpha fitted on validation; evaluate only after freezing on test",
+      "mean_error_m": 0.02658990109531754,
+      "rmse_m": 0.036529552496628905,
+      "p90_error_m": 0.05449111002675737
+    },
+    {
+      "mask_duration_s": 0.5,
+      "method": "last_position",
+      "n": 808,
+      "mean_error_m": 0.08767414931618364,
+      "rmse_m": 0.12034706648222163,
+      "p90_error_m": 0.20492297790255468
+    },
+    {
+      "mask_duration_s": 0.5,
+      "method": "constant_velocity",
+      "n": 808,
+      "mean_error_m": 0.09875891175857875,
+      "rmse_m": 0.12756625520481235,
+      "p90_error_m": 0.2056454614219032
+    },
+    {
+      "mask_duration_s": 0.5,
+      "method": "gaussian_gru",
+      "n": 808,
+      "mean_error_m": 0.07604711479540974,
+      "rmse_m": 0.09807164355091769,
+      "p90_error_m": 0.1550444253711306,
+      "calibrated_coverage": 0.9096534653465347,
+      "mean_calibrated_radius_m": 0.15035634040779278
+    },
+    {
+      "mask_duration_s": 0.5,
+      "method": "shrunk_gaussian_gru",
+      "n": 808,
+      "shrinkage_alpha": 0.7561518257708071,
+      "selection_note": "alpha fitted on validation; evaluate only after freezing on test",
+      "mean_error_m": 0.07241932952114005,
+      "rmse_m": 0.09514901546157975,
+      "p90_error_m": 0.14763793484924886
+    },
+    {
+      "mask_duration_s": 1.0,
+      "method": "last_position",
+      "n": 798,
+      "mean_error_m": 0.14685341737226396,
+      "rmse_m": 0.1972415434847467,
+      "p90_error_m": 0.31436330802705553
+    },
+    {
+      "mask_duration_s": 1.0,
+      "method": "constant_velocity",
+      "n": 798,
+      "mean_error_m": 0.232722050411137,
+      "rmse_m": 0.29229475541377514,
+      "p90_error_m": 0.4543263203282487
+    },
+    {
+      "mask_duration_s": 1.0,
+      "method": "gaussian_gru",
+      "n": 798,
+      "mean_error_m": 0.15074491751039665,
+      "rmse_m": 0.19195250335009434,
+      "p90_error_m": 0.3017403490756788,
+      "calibrated_coverage": 0.8959899749373433,
+      "mean_calibrated_radius_m": 0.2940095305977733
+    },
+    {
+      "mask_duration_s": 1.0,
+      "method": "shrunk_gaussian_gru",
+      "n": 798,
+      "shrinkage_alpha": 0.5521743761137717,
+      "selection_note": "alpha fitted on validation; evaluate only after freezing on test",
+      "mean_error_m": 0.13740585914414594,
+      "rmse_m": 0.18135490666942392,
+      "p90_error_m": 0.2853070353532102
+    }
+  ]
+}

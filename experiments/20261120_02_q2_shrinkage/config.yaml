@@ -1,0 +1,13 @@
+experiment_id: 20261120_02_q2_shrinkage
+purpose: Fit horizon-specific displacement shrinkage for the frozen Gaussian GRU without adding a new model.
+split: validation
+mask_durations_s: [0.2, 0.5, 1.0]
+methods: [last_position, constant_velocity, gaussian_gru]
+tune_shrinkage: true
+model_config: configs/q1_delivery_gru_gaussian.yaml
+checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+normalization: work/incoming/model_delivery_20261120/model-delivery/normalization.json
+calibration_report: work/results/q1_delivery_gru_gaussian_validation.json
+private_scoring_table: work/incoming/model_delivery_20261120/model-delivery/q2_masks.parquet
+information_rule: Shrinkage uses only frozen GRU predictions. Alpha is fitted on validation endpoint residuals and must be frozen before test.
+seed: 2026
