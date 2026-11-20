@@ -1,0 +1,26 @@
+seed: 2026
+device: auto
+data:
+  train_path: work/windows/delivery_v1/q1_train.npz
+  val_path: work/windows/delivery_v1/q1_validation.npz
+  input_length: 15
+  horizon: 3
+  target_horizons_s: [0.2, 0.5, 1.0]
+  input_dim: 10
+  target_dim: 3
+  batch_size: 512
+  num_workers: 0
+model:
+  name: gru
+  hidden_dim: 64
+  num_layers: 1
+  dropout: 0.0
+  probabilistic: false
+training:
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  patience: 3
+  loss: mse
+  checkpoint_dir: work/checkpoints/q1_delivery_gru_pilot

@@ -1,0 +1,26 @@
+seed: 2026
+device: auto
+data:
+  train_path: work/windows/q1_train.npz
+  val_path: work/windows/q1_validation.npz
+  input_length: 15
+  horizon: 30
+  input_dim: 10
+  target_dim: 3
+  batch_size: 128
+  num_workers: 0
+model:
+  name: tcn
+  channels: [64, 64, 96]
+  kernel_size: 3
+  dropout: 0.15
+  probabilistic: true
+training:
+  epochs: 80
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  patience: 10
+  loss: gaussian_nll
+  checkpoint_dir: work/checkpoints/q1_tcn_gaussian
+

@@ -1,0 +1,33 @@
+# Operating system and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv*/
+venv/
+
+# Local datasets, generated outputs and model artifacts
+work/
+data/
+output/
+*.parquet
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.zip
+*.mcap
+*.mp4
+
+# Logs and temporary files
+*.log
+tmp/
+.tmp/
+

@@ -1,0 +1,14 @@
+policy:
+  name: uncertainty_trigger
+  radius_threshold_m: 0.12
+  z_value: 1.96
+experiment:
+  missing_durations_s: [0.2, 0.5, 1.0, 1.5, 2.0]
+  request_budget: 4
+  request_cost: 1.0
+  return_delay_s: 0.2
+calibration:
+  split: validation
+  target_coverage: 0.9
+  freeze_before_test: true
+

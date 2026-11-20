@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "allowed": {
+    "dataset": ["EgoDemo", "EgoPro", "EgoStandard"],
+    "split": ["train", "validation", "test"],
+    "quality": ["good", "bad", "missing"],
+    "duplicate_status": ["unique", "duplicate_uuid", "metadata_conflict"],
+    "mapping_status": ["matched", "unmatched", "ambiguous"]
+  },
+  "keys": {
+    "records": ["episode_uuid"],
+    "frames": ["frame_id"],
+    "segments": ["segment_id"]
+  },
+  "required_columns": {
+    "records": [
+      "episode_uuid", "dataset", "sample", "source_path", "environment_id",
+      "scene_id", "operator_id", "split", "n_frames", "duration_s",
+      "actual_fps", "n_segments", "left_bad_ratio", "right_bad_ratio",
+      "duplicate_timestamp_count", "nonmonotonic_count", "large_gap_count",
+      "duplicate_status", "usable", "exclusion_reason"
+    ],
+    "frames": [
+      "frame_id", "episode_uuid", "dataset", "sample", "split", "timestamp_s",
+      "timestamp_raw", "source_frame_index", "source_locator",
+      "left_palm_x", "left_palm_y", "left_palm_z",
+      "right_palm_x", "right_palm_y", "right_palm_z",
+      "left_raw_quality_flag", "right_raw_quality_flag",
+      "left_bad_reasons", "right_bad_reasons", "left_quality", "right_quality",
+      "left_fit_ok", "right_fit_ok", "left_ref_ok", "right_ref_ok",
+      "segment_id", "continuity_block_id"
+    ],
+    "segments": [
+      "segment_id", "episode_uuid", "dataset", "sample", "split",
+      "source_segment_index", "family_id", "start_s", "end_s", "duration_s",
+      "description", "eligible", "n_frames", "good_ratio", "bad_ratio",
+      "mapping_status"
+    ],
+    "audit": [
+      "issue_id", "severity", "dataset", "episode_uuid", "source_locator",
+      "issue_type", "message", "action", "affected_output"
+    ]
+  }
+}

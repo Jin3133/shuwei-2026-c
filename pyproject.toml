@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shuwei-c"
+version = "0.1.0"
+description = "Uncertainty-aware hand trajectory forecasting for ShuWei Cup 2026 C"
+requires-python = ">=3.11"
+dependencies = ["numpy>=2.0", "PyYAML>=6.0", "torch>=2.2"]
+
+[project.optional-dependencies]
+kalman = ["filterpy>=1.4.5"]
+q3 = ["scikit-learn>=1.5", "ortools>=9.10"]
+calibration = ["mapie>=1.0", "scikit-learn>=1.5"]
+data = ["pyarrow>=16"]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+include = ["shuwei_c*"]
+
+[tool.ruff]
+line-length = 120
+

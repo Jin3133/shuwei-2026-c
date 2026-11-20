@@ -1,0 +1,33 @@
+seed: 2026
+device: auto
+data:
+  train_path: work/windows/q1_train.npz
+  val_path: work/windows/q1_validation.npz
+  input_length: 15
+  horizon: 30
+  input_dim: 10
+  target_dim: 3
+  batch_size: 128
+  num_workers: 0
+  feature_order: [dx, dy, dz, vx, vy, vz, observed_mask, time_since_valid_s, raw_quality, hand_side]
+model:
+  name: quality_gru
+  hidden_dim: 96
+  num_layers: 2
+  dropout: 0.15
+  value_dim: 6
+  evidence_indices: [6, 7, 8, 9]
+training:
+  epochs: 80
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  patience: 10
+  loss: joint_gaussian_nll
+  reliability_weight: 0.2
+  horizon_decay: 0.02
+  checkpoint_dir: work/checkpoints/q1_quality_gru
+calibration:
+  method: split_conformal
+  split: validation
+  coverage: 0.9
