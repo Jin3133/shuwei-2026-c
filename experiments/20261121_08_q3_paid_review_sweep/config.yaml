@@ -1,0 +1,33 @@
+experiment_id: 20261121_08_q3_paid_review_sweep
+purpose: Measure whether fixed or uncertainty-triggered paid prefix reviews improve the frozen Q3 scheduling policy.
+task_root: /Users/j/Documents/study/数维杯/C_Problem_Data/C_Problem_Data/Restocking_Problem_and_Data/Restocking_Tasks_and_Constraints
+features: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+calibration_results: experiments/20261121_05_q3_oof_calibration/results.json
+train_split: train
+evaluation_split: validation
+prefixes_s: [0.2, 0.6, 1.0]
+quantiles: [0.5, 0.8]
+model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+reservation_fraction: 0.25
+ordering:
+  rule: apparent_tardiness_cost
+  lookahead_factor: 2.0
+policies:
+  - {name: no_review, mode: none}
+  - {name: fixed_one_review, mode: fixed_one}
+  - {name: uncertainty_2s, mode: uncertainty, spread_threshold_s: 2.0}
+  - {name: uncertainty_4s, mode: uncertainty, spread_threshold_s: 4.0}
+  - {name: uncertainty_6s, mode: uncertainty, spread_threshold_s: 6.0}
+  - {name: uncertainty_8s, mode: uncertainty, spread_threshold_s: 8.0}
+  - {name: uncertainty_9s, mode: uncertainty, spread_threshold_s: 9.0}
+  - {name: uncertainty_10s, mode: uncertainty, spread_threshold_s: 10.0}
+scenario:
+  alpha: 1.0
+  beta_s: 0.5
+information_rule: A review only changes the visible prefix after the official delay; true validation duration remains private to the simulator.
