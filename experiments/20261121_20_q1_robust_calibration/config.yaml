@@ -1,0 +1,12 @@
+experiment_id: 20261121_20_q1_robust_calibration
+purpose: Validate whether environment-robust conformal scaling improves Q1 uncertainty coverage under domain shift.
+source: work/incoming/model_delivery_20261120/model-delivery/q1_windows.parquet
+validation_npz: work/windows/delivery_v1/q1_validation.npz
+test_npz: work/windows/delivery_test_v1/q1_test.npz
+official_records: work/official_index_audit/official_records.csv
+model:
+  config: configs/q1_delivery_gru_gaussian.yaml
+  checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+horizons_s: [0.2, 0.5, 1.0]
+coverage: 0.9
+information_rule: Calibration scales are fitted only from validation residuals. Test targets are used only for a frozen sensitivity report and never for coefficient fitting.

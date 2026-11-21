@@ -1,0 +1,287 @@
+{
+  "experiment_id": "20261121_20_q1_robust_calibration",
+  "git_revision": "b7bac45c94219ffdb93170e25d2b5e03628974b6",
+  "target_coverage": 0.9,
+  "validation_environments": 4,
+  "crossfit_validation": [
+    {
+      "method": "pooled",
+      "horizon_s": 0.2,
+      "n": 1941,
+      "scale": 1.7490736246109009,
+      "coverage": 0.9412673879443586,
+      "mean_radius_m": 0.06568231050862049,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.5,
+      "n": 1941,
+      "scale": 1.6800906658172607,
+      "coverage": 0.889747552807831,
+      "mean_radius_m": 0.17531591960435644,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 1.0,
+      "n": 1941,
+      "scale": 1.458816647529602,
+      "coverage": 0.848531684698609,
+      "mean_radius_m": 0.31925242536387705,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.2,
+      "n": 1941,
+      "scale": 1.766659140586853,
+      "coverage": 0.9417825862957239,
+      "mean_radius_m": 0.06634269284160761,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.5,
+      "n": 1941,
+      "scale": 2.0107421875,
+      "coverage": 0.9252962390520351,
+      "mean_radius_m": 0.20981910254073158,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 1.0,
+      "n": 1941,
+      "scale": 2.0762779712677,
+      "coverage": 0.9252962390520351,
+      "mean_radius_m": 0.45437977361946225,
+      "held_environment": "hospitality_x_restaurant_0004"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.2,
+      "n": 6888,
+      "scale": 1.6175131797790527,
+      "coverage": 0.8716608594657376,
+      "mean_radius_m": 0.04343813218257471,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.5,
+      "n": 6888,
+      "scale": 1.9099305868148804,
+      "coverage": 0.9520905923344948,
+      "mean_radius_m": 0.15882531215426657,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 1.0,
+      "n": 6888,
+      "scale": 1.9342063665390015,
+      "coverage": 0.9822880371660859,
+      "mean_radius_m": 0.3611410097549503,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.2,
+      "n": 6888,
+      "scale": 1.766659140586853,
+      "coverage": 0.9012775842044135,
+      "mean_radius_m": 0.047443429969979016,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.5,
+      "n": 6888,
+      "scale": 2.0107421875,
+      "coverage": 0.9610917537746806,
+      "mean_radius_m": 0.16720856652912164,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 1.0,
+      "n": 6888,
+      "scale": 2.0762779712677,
+      "coverage": 0.9876596980255516,
+      "mean_radius_m": 0.38766759123913647,
+      "held_environment": "logistics_x_courier_station_0022"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.2,
+      "n": 2190,
+      "scale": 1.7026610374450684,
+      "coverage": 0.8922374429223744,
+      "mean_radius_m": 0.05527492907703996,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.5,
+      "n": 2190,
+      "scale": 1.6341513395309448,
+      "coverage": 0.8529680365296803,
+      "mean_radius_m": 0.1565248259715226,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 1.0,
+      "n": 2190,
+      "scale": 1.4334752559661865,
+      "coverage": 0.8292237442922374,
+      "mean_radius_m": 0.29814998880730564,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.2,
+      "n": 2190,
+      "scale": 1.7615667581558228,
+      "coverage": 0.9,
+      "mean_radius_m": 0.05718723543920626,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.5,
+      "n": 2190,
+      "scale": 2.0107421875,
+      "coverage": 0.9031963470319635,
+      "mean_radius_m": 0.19259603646157664,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 1.0,
+      "n": 2190,
+      "scale": 2.0762779712677,
+      "coverage": 0.9095890410958904,
+      "mean_radius_m": 0.431847184887105,
+      "held_environment": "retail_x_supermarket_0074"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.2,
+      "n": 1122,
+      "scale": 1.716681718826294,
+      "coverage": 0.9135472370766489,
+      "mean_radius_m": 0.05389991299234081,
+      "held_environment": "retail_x_supermarket_0147"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 0.5,
+      "n": 1122,
+      "scale": 1.6577869653701782,
+      "coverage": 0.8458110516934046,
+      "mean_radius_m": 0.1532345798216776,
+      "held_environment": "retail_x_supermarket_0147"
+    },
+    {
+      "method": "pooled",
+      "horizon_s": 1.0,
+      "n": 1122,
+      "scale": 1.433792233467102,
+      "coverage": 0.7655971479500892,
+      "mean_radius_m": 0.2926666483768539,
+      "held_environment": "retail_x_supermarket_0147"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.2,
+      "n": 1122,
+      "scale": 1.766659140586853,
+      "coverage": 0.9188948306595366,
+      "mean_radius_m": 0.05546909070008584,
+      "held_environment": "retail_x_supermarket_0147"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 0.5,
+      "n": 1122,
+      "scale": 1.977460503578186,
+      "coverage": 0.8957219251336899,
+      "mean_radius_m": 0.18278303286822142,
+      "held_environment": "retail_x_supermarket_0147"
+    },
+    {
+      "method": "worst_environment",
+      "horizon_s": 1.0,
+      "n": 1122,
+      "scale": 1.984932780265808,
+      "coverage": 0.8912655971479501,
+      "mean_radius_m": 0.40516583260392824,
+      "held_environment": "retail_x_supermarket_0147"
+    }
+  ],
+  "frozen_scales": {
+    "pooled_validation": [
+      1.7095435857772827,
+      1.6882740259170532,
+      1.4996652603149414
+    ],
+    "worst_validation_environment": [
+      1.766659140586853,
+      2.0107421875,
+      2.0762779712677
+    ]
+  },
+  "test_sensitivity_analysis": [
+    {
+      "method": "pooled_validation",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "scale": 1.7095435857772827,
+      "coverage": 0.9157128448011227,
+      "mean_radius_m": 0.0643149507547427
+    },
+    {
+      "method": "pooled_validation",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "scale": 1.6882740259170532,
+      "coverage": 0.8512476428540104,
+      "mean_radius_m": 0.18179552819395886
+    },
+    {
+      "method": "pooled_validation",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "scale": 1.4996652603149414,
+      "coverage": 0.6920580625356313,
+      "mean_radius_m": 0.34217637143817675
+    },
+    {
+      "method": "worst_validation_environment",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "scale": 1.766659140586853,
+      "coverage": 0.9229487348155945,
+      "mean_radius_m": 0.06646370210888682
+    },
+    {
+      "method": "worst_validation_environment",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "scale": 2.0107421875,
+      "coverage": 0.9124238038854536,
+      "mean_radius_m": 0.21651931643020986
+    },
+    {
+      "method": "worst_validation_environment",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "scale": 2.0762779712677,
+      "coverage": 0.86317589790817,
+      "mean_radius_m": 0.4737412281966176
+    }
+  ],
+  "interpretation_rule": "Method comparison is based on leave-one-environment-out validation. Test is reported only as a sensitivity analysis and is not used to fit a scale."
+}
