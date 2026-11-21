@@ -1,0 +1,23 @@
+experiment_id: 20261121_16_q3_frozen_test_duration
+purpose: One-time frozen duration-model evaluation on the official test environments; no scheduling claims without organizer test seeds.
+source: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+official_records: work/official_index_audit/official_records.csv
+train_split: train
+evaluation_split: test
+prefixes_s: [0.2, 0.6, 1.0]
+gbdt_calibration: experiments/20261121_05_q3_oof_calibration/results.json
+rf_calibration: experiments/20261121_11_q3_duration_model_benchmark/results.json
+gbdt_model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+rf_model:
+  n_estimators: 400
+  min_samples_leaf: 5
+  max_features: 0.8
+  random_state: 2026
+  n_jobs: -1
+information_rule: Hyperparameters, model selection, and train-OOF calibration were frozen before test targets were evaluated.
