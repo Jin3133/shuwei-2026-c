@@ -1,0 +1,39 @@
+experiment_id: 20261121_15_q3_unified_ablation
+purpose: Final paired ablation of duration model, ordering rule, and reservation strength under one nominal protocol.
+task_root: /Users/j/Documents/study/数维杯/C_Problem_Data/C_Problem_Data/Restocking_Problem_and_Data/Restocking_Tasks_and_Constraints
+features: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+gbdt_calibration: experiments/20261121_05_q3_oof_calibration/results.json
+rf_calibration: experiments/20261121_11_q3_duration_model_benchmark/results.json
+train_split: train
+evaluation_split: validation
+prefix_s: 0.2
+prefixes_s: [0.2, 0.6, 1.0]
+quantiles: [0.5, 0.8]
+features_schema:
+  categorical: [family_id]
+  excluded: [prefix_id, segment_id, episode_uuid, dataset, split, target_duration_s]
+gbdt_model:
+  n_estimators: 200
+  learning_rate: 0.03
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+  random_state: 2026
+rf_model:
+  n_estimators: 400
+  min_samples_leaf: 5
+  max_features: 0.8
+  random_state: 2026
+  n_jobs: -1
+lookahead_factor: 2.0
+variants:
+  - {name: family_atc_r025, model: family, ordering: apparent_tardiness_cost, reserve_fraction: 0.25, ablation: duration_model}
+  - {name: gbdt_atc_r025, model: gbdt, ordering: apparent_tardiness_cost, reserve_fraction: 0.25, ablation: duration_model}
+  - {name: rf_atc_r025, model: rf, ordering: apparent_tardiness_cost, reserve_fraction: 0.25, ablation: final}
+  - {name: rf_fcfs_r025, model: rf, ordering: first_come_first_served, reserve_fraction: 0.25, ablation: ordering}
+  - {name: rf_edd_r025, model: rf, ordering: earliest_due_date, reserve_fraction: 0.25, ablation: ordering}
+  - {name: rf_atc_r000, model: rf, ordering: apparent_tardiness_cost, reserve_fraction: 0.0, ablation: reservation}
+  - {name: rf_atc_r050, model: rf, ordering: apparent_tardiness_cost, reserve_fraction: 0.5, ablation: reservation}
+  - {name: rf_atc_r100, model: rf, ordering: apparent_tardiness_cost, reserve_fraction: 1.0, ablation: reservation}
+scenario: {alpha: 1.0, beta_s: 0.5}
+information_rule: All variants share the same paired validation samples and differ in exactly one declared component relative to the final policy.

@@ -27,8 +27,11 @@ final_policy:
   active_cases: [S2]
   gain_threshold_s: 0.5
   max_reviews_per_job: 1
-service_grid:
-  alpha: [0.75, 1.0, 1.5]
-  beta_s: [0.0, 0.5, 1.0]
+service_conditions:
+  - {alpha: 1.0, beta_s: 0.5, label: nominal}
+  - {alpha: 0.75, beta_s: 0.5, label: alpha_low}
+  - {alpha: 1.5, beta_s: 0.5, label: alpha_high}
+  - {alpha: 1.0, beta_s: 0.0, label: beta_low}
+  - {alpha: 1.0, beta_s: 1.0, label: beta_high}
 nominal: {alpha: 1.0, beta_s: 0.5}
 information_rule: Model, reservation fraction, active cases, and VOI threshold are frozen before this robustness run.

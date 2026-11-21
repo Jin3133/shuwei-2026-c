@@ -3,7 +3,6 @@
 from __future__ import annotations
 import argparse,csv,json,random,subprocess,sys
 from collections import defaultdict
-from itertools import product
 from pathlib import Path
 import pyarrow.parquet as pq
 import numpy as np
@@ -16,21 +15,21 @@ from run_q3_paid_review_sweep import build_predictions,can_review
 from run_q3_value_of_information import learn_value
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--experiment',type=Path,required=True); ap.add_argument('--output',type=Path,required=True); ap.add_argument('--trials-csv',type=Path,required=True)
+    ap=argparse.ArgumentParser(); ap.add_argument('--experiment',type=Path,required=True); ap.add_argument('--output',type=Path,required=True); ap.add_argument('--trials-csv',type=Path,required=True); ap.add_argument('--logs-jsonl',type=Path,required=True)
     a=ap.parse_args(); c=load_config(a.experiment); root=Path(c['task_root']); common=json.loads((root/'common_conditions.json').read_text()); rows=pq.read_table(c['features']).to_pylist()
     cal=json.loads(Path(c['calibration_results']).read_text()); corrections={str(r['prefix_s']):r['corrections_s'] for r in cal['results'] if r['model']=='random_forest'}
     predictions=build_predictions(rows,c,corrections); values,diagnostics=learn_value(rows,c,corrections)
     tasks=read_csv(root/'tasks.csv'); units=read_csv(root/'source_segment_index.csv'); zones={r['zone_id']:(float(r['x']),float(r['y'])) for r in read_csv(root/'service_zones.csv')}; pools=defaultdict(list)
     for r in units:
         if r['split']==c['evaluation_split'] and r['eligible']=='1' and r['unit_id'] in predictions: pools[r['family_id']].append(r)
-    cases={r['case_id']:r for r in common['cases']}; conditions=[(float(x),float(y)) for x,y in product(c['service_grid']['alpha'],c['service_grid']['beta_s'])]; trials=[]
+    cases={r['case_id']:r for r in common['cases']}; conditions=[(float(x['alpha']),float(x['beta_s']),x['label']) for x in c['service_conditions']]; trials=[]; audit_logs=[]
     for case_id in sorted(cases):
         task_rows=[r for r in tasks if r['case_id']==case_id]; case=cases[case_id]
         jobs=[Job(r['job_id'],float(r['release_s']),float(r['due_s']),float(r['priority_weight']),r['zone_id'],tuple(x.strip() for x in r['predecessors'].split(';') if x.strip())) for r in task_rows]
         scenario=ScenarioConfig(float(case['horizon_s']),float(case['cost_budget']),int(case['observation_limit']),zones,initial_zone=common['initial_zone'],review_delay_s=float(common['observation']['delay_s']),review_cost=float(common['observation']['cost']),max_reviews_per_job=int(common['observation']['max_per_job']),reserve_min_s=float(common['service']['reserve_min_s']),changeover_s=float(common['movement']['changeover_s']),service_fixed_cost=float(common['fees']['service_fixed']),reserve_cost_rate=float(common['fees']['reserve_per_second']),distance_cost_rate=float(common['fees']['distance_per_unit']),max_actions=int(common['max_actions']))
-        for seed in common['validation_seeds']:
+        for trial_number,seed in enumerate(common['validation_seeds'],start=1):
             rng=random.Random(int(seed)); sampled={r['job_id']:rng.choice(pools[r['family_id']]) for r in task_rows}
-            for alpha,beta in conditions:
+            for alpha,beta,condition_label in conditions:
                 realized={jid:alpha*float(unit['duration_s'])+beta for jid,unit in sampled.items()}
                 for policy in ('no_review','final_case_adaptive_voi'):
                     sim=ScenarioSimulator(jobs,realized,scenario)
@@ -47,15 +46,23 @@ def main():
                             decision_gain=gain*(1.0+job.weight/max(abs(slack),1.0))
                             if decision_gain>float(c['final_policy']['gain_threshold_s']): action=Review(action.job_id)
                         sim.step(action)
-                    trials.append({'case_id':case_id,'seed':int(seed),'alpha':alpha,'beta_s':beta,'policy':policy,**sim.metrics(),'sampled_units':';'.join(sampled[j.job_id]['unit_id'] for j in jobs)})
+                    trials.append({'case_id':case_id,'split':c['evaluation_split'],'trial_number':trial_number,'seed':int(seed),'condition':condition_label,'alpha':alpha,'beta_s':beta,'policy':policy,**sim.metrics(),'sampled_units':';'.join(sampled[j.job_id]['unit_id'] for j in jobs)})
+                    action_log=[]
+                    for event in sim.state.log:
+                        item=dict(event)
+                        if item.get('action')=='execute' and item.get('job_id') in sampled: item['source_unit_id']=sampled[item['job_id']]['unit_id']
+                        action_log.append(item)
+                    audit_logs.append({'case_id':case_id,'split':c['evaluation_split'],'trial_number':trial_number,'seed':int(seed),'condition':condition_label,'alpha':alpha,'beta_s':beta,'policy':policy,'actions':action_log})
     a.trials_csv.parent.mkdir(parents=True,exist_ok=True)
-    with a.trials_csv.open('w',encoding='utf-8',newline='') as f: w=csv.DictWriter(f,fieldnames=list(trials[0])); w.writeheader(); w.writerows(trials)
+    with a.trials_csv.open('w',encoding='utf-8',newline='') as f: w=csv.DictWriter(f,fieldnames=list(trials[0]),lineterminator='\n'); w.writeheader(); w.writerows(trials)
+    with a.logs_jsonl.open('w',encoding='utf-8') as f:
+        for record in audit_logs: f.write(json.dumps(record,separators=(',',':'))+'\n')
     summaries=[]
     for case_id in sorted(cases):
-        for alpha,beta in conditions:
+        for alpha,beta,condition_label in conditions:
             for policy in ('no_review','final_case_adaptive_voi'):
                 part=[r for r in trials if r['case_id']==case_id and r['alpha']==alpha and r['beta_s']==beta and r['policy']==policy]
-                summaries.append({'case_id':case_id,'alpha':alpha,'beta_s':beta,'policy':policy,**aggregate(part)})
+                summaries.append({'case_id':case_id,'condition':condition_label,'alpha':alpha,'beta_s':beta,'policy':policy,**aggregate(part)})
     nominal_alpha=float(c['nominal']['alpha']); nominal_beta=float(c['nominal']['beta_s']); nominal=[r for r in summaries if r['alpha']==nominal_alpha and r['beta_s']==nominal_beta]
     rng=np.random.default_rng(2026); paired_effects=[]
     for case_id in sorted(cases):

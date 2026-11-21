@@ -92,7 +92,10 @@ def choose_action(sim, jobs, estimates, ordering, beta, lookahead_factor):
         if state.cost + cost > config.cost_budget or state.now_s + distance + config.changeover_s + reserve > config.horizon_s:
             continue
         slack = max(job.due_s - state.now_s - process, 0.0)
-        if ordering == "earliest_due_date":
+        if ordering == "first_come_first_served":
+            sequence = int(job.job_id.rsplit("J", 1)[-1])
+            score = -1000.0 * job.release_s - sequence
+        elif ordering == "earliest_due_date":
             score = -job.due_s
         elif ordering == "weighted_earliest_due_date":
             score = job.weight / max(job.due_s - state.now_s, 1.0)
