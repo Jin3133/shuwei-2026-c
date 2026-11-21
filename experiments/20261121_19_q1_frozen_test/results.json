@@ -1,0 +1,639 @@
+{
+  "experiment_id": "20261121_19_q1_frozen_test",
+  "git_revision": "9dab3bd8f4810ffcdbbaaa22f37b9e3f1a315844",
+  "split": "test",
+  "windows": 22803,
+  "episodes": 7,
+  "environments": 4,
+  "final_roles": {
+    "point_prediction": "mse_gru",
+    "uncertainty_estimation": "gaussian_gru_with_validation_frozen_conformal_radius",
+    "rejected_ablation": "horizon_shrinkage"
+  },
+  "frozen_shrinkage": {
+    "mse_gru": [
+      1.0,
+      0.7785653471946716,
+      0.6015791893005371
+    ],
+    "gaussian_gru": [
+      1.0,
+      0.7353421449661255,
+      0.5491365194320679
+    ]
+  },
+  "frozen_conformal": [
+    {
+      "horizon_s": 0.2,
+      "n": 22803,
+      "target_coverage": 0.9,
+      "validation_frozen_scale": 1.7095515727996826,
+      "test_coverage": 0.9157128448011227,
+      "mean_radius_m": 0.06431525123550061
+    },
+    {
+      "horizon_s": 0.5,
+      "n": 22803,
+      "target_coverage": 0.9,
+      "validation_frozen_scale": 1.6882823705673218,
+      "test_coverage": 0.8512476428540104,
+      "mean_radius_m": 0.18179642675668023
+    },
+    {
+      "horizon_s": 1.0,
+      "n": 22803,
+      "target_coverage": 0.9,
+      "validation_frozen_scale": 1.4997105598449707,
+      "test_coverage": 0.6921457702933824,
+      "mean_radius_m": 0.34218670736394863
+    }
+  ],
+  "checkpoint_metrics": {
+    "mse_gru": {
+      "ade_m": 0.08702109754085541,
+      "rmse_m": 0.1297101378440857,
+      "fde_m": 0.15358643233776093,
+      "loss": 0.005763469098989542,
+      "epoch": 8,
+      "train_loss": 0.005444244498058277,
+      "learning_rate": 0.001
+    },
+    "gaussian_gru": {
+      "ade_m": 0.08740920573472977,
+      "rmse_m": 0.13236628472805023,
+      "fde_m": 0.15700717270374298,
+      "coverage_95": 0.8405952453613281,
+      "mean_std_m": 0.06050904467701912,
+      "loss": -1.5946420058608055,
+      "epoch": 27,
+      "train_loss": -1.7271121403750251,
+      "learning_rate": 6.25e-05
+    }
+  },
+  "per_horizon": [
+    {
+      "model": "last_position",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.07849076390266418,
+      "rmse_m": 0.095404252409935,
+      "median_error_m": 0.0733645036816597,
+      "p90_error_m": 0.152565136551857
+    },
+    {
+      "model": "last_position",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.18501874804496765,
+      "rmse_m": 0.22651638090610504,
+      "median_error_m": 0.1723838895559311,
+      "p90_error_m": 0.3674278259277344
+    },
+    {
+      "model": "last_position",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.3400714695453644,
+      "rmse_m": 0.41367748379707336,
+      "median_error_m": 0.31232506036758423,
+      "p90_error_m": 0.6746435165405273
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.03180113365454881,
+      "rmse_m": 0.039471921359067026,
+      "median_error_m": 0.026820024068811146,
+      "p90_error_m": 0.05725249937029138
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.12009191138220013,
+      "rmse_m": 0.14136780222710305,
+      "median_error_m": 0.10687130639972642,
+      "p90_error_m": 0.21533157485167884
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.3234100531193296,
+      "rmse_m": 0.37314550244279693,
+      "median_error_m": 0.2958659868611958,
+      "p90_error_m": 0.5726859531685836
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.056116148829460144,
+      "rmse_m": 0.06531684100627899,
+      "median_error_m": 0.05068029463291168,
+      "p90_error_m": 0.10104770213365555
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.15926626324653625,
+      "rmse_m": 0.18405650556087494,
+      "median_error_m": 0.1457703411579132,
+      "p90_error_m": 0.28569769859313965
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.36881223320961,
+      "rmse_m": 0.42167383432388306,
+      "median_error_m": 0.3425401449203491,
+      "p90_error_m": 0.6425569653511047
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.03630353882908821,
+      "rmse_m": 0.043496277183294296,
+      "median_error_m": 0.030834680423140526,
+      "p90_error_m": 0.06773335486650467
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.1088184118270874,
+      "rmse_m": 0.13034707307815552,
+      "median_error_m": 0.0954890251159668,
+      "p90_error_m": 0.20637403428554535
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.26381298899650574,
+      "rmse_m": 0.3157786726951599,
+      "median_error_m": 0.2316618710756302,
+      "p90_error_m": 0.5174632668495178
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.0315023772418499,
+      "rmse_m": 0.03821621090173721,
+      "median_error_m": 0.02722979709506035,
+      "p90_error_m": 0.058163560926914215,
+      "gaussian_nll": -2.4403417110443115,
+      "raw_joint_95_coverage": 0.8337060913037758,
+      "mean_axis_std_m": 0.021668434143066406,
+      "uncertainty_error_correlation": 0.4197917222381886
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.1100567877292633,
+      "rmse_m": 0.13158002495765686,
+      "median_error_m": 0.09690700471401215,
+      "p90_error_m": 0.20606115460395813,
+      "gaussian_nll": -1.127825140953064,
+      "raw_joint_95_coverage": 0.7408235758452835,
+      "mean_axis_std_m": 0.06180263310670853,
+      "uncertainty_error_correlation": 0.37811166636911375
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.27365797758102417,
+      "rmse_m": 0.325051873922348,
+      "median_error_m": 0.24348929524421692,
+      "p90_error_m": 0.5310624241828918,
+      "gaussian_nll": -0.038495391607284546,
+      "raw_joint_95_coverage": 0.6240406963995966,
+      "mean_axis_std_m": 0.12996074557304382,
+      "uncertainty_error_correlation": 0.31726076434762696
+    },
+    {
+      "model": "mse_gru_shrink",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.0363035374297839,
+      "rmse_m": 0.0434962768198926,
+      "median_error_m": 0.03083468087668792,
+      "p90_error_m": 0.06773335643998343
+    },
+    {
+      "model": "mse_gru_shrink",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.11719504708088802,
+      "rmse_m": 0.14105536244509903,
+      "median_error_m": 0.10359072106874184,
+      "p90_error_m": 0.22312653625407172
+    },
+    {
+      "model": "mse_gru_shrink",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.2786530865400098,
+      "rmse_m": 0.33667430295395545,
+      "median_error_m": 0.2521622230056354,
+      "p90_error_m": 0.5617436837512697
+    },
+    {
+      "model": "gaussian_gru_shrink",
+      "horizon_s": 0.2,
+      "n": 22803,
+      "mean_error_m": 0.03150237595954381,
+      "rmse_m": 0.03821621061074364,
+      "median_error_m": 0.027229798597873472,
+      "p90_error_m": 0.0581635615882513,
+      "gaussian_nll": -2.440341503172635,
+      "raw_joint_95_coverage": 0.8337060913037758,
+      "mean_axis_std_m": 0.021668434143066406,
+      "uncertainty_error_correlation": 0.4197917229553292
+    },
+    {
+      "model": "gaussian_gru_shrink",
+      "horizon_s": 0.5,
+      "n": 22803,
+      "mean_error_m": 0.11979582208877507,
+      "rmse_m": 0.14434444499857602,
+      "median_error_m": 0.10608243905747815,
+      "p90_error_m": 0.22792823981048188,
+      "gaussian_nll": -1.014071257940103,
+      "raw_joint_95_coverage": 0.6717098627373591,
+      "mean_axis_std_m": 0.06180263310670853,
+      "uncertainty_error_correlation": 0.4186404793326658
+    },
+    {
+      "model": "gaussian_gru_shrink",
+      "horizon_s": 1.0,
+      "n": 22803,
+      "mean_error_m": 0.288331993686621,
+      "rmse_m": 0.34775330792685305,
+      "median_error_m": 0.2632000134557982,
+      "p90_error_m": 0.5762133976421732,
+      "gaussian_nll": 0.094164695431629,
+      "raw_joint_95_coverage": 0.570538964171381,
+      "mean_axis_std_m": 0.12996074557304382,
+      "uncertainty_error_correlation": 0.33790471717769227
+    }
+  ],
+  "stratified": [
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "last_position",
+      "n_windows": 1116,
+      "ade_m": 0.050500813871622086,
+      "fde_1s_m": 0.07614225149154663
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "constant_velocity",
+      "n_windows": 1116,
+      "ade_m": 0.08094029861308341,
+      "fde_1s_m": 0.15146665265762127
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "kalman",
+      "n_windows": 1116,
+      "ade_m": 0.08168584853410721,
+      "fde_1s_m": 0.13527221977710724
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "mse_gru",
+      "n_windows": 1116,
+      "ade_m": 0.05383965000510216,
+      "fde_1s_m": 0.09111946821212769
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "gaussian_gru",
+      "n_windows": 1116,
+      "ade_m": 0.05587217956781387,
+      "fde_1s_m": 0.09705660492181778
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "mse_gru_shrink",
+      "n_windows": 1116,
+      "ade_m": 0.0481559474006756,
+      "fde_1s_m": 0.07779801362498617
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "gaussian_gru_shrink",
+      "n_windows": 1116,
+      "ade_m": 0.04830328904302,
+      "fde_1s_m": 0.07947388954447229
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "last_position",
+      "n_windows": 5555,
+      "ade_m": 0.13744477927684784,
+      "fde_1s_m": 0.22604922950267792
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "constant_velocity",
+      "n_windows": 5555,
+      "ade_m": 0.1564858224535302,
+      "fde_1s_m": 0.3082011606752711
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "kalman",
+      "n_windows": 5555,
+      "ade_m": 0.17315641045570374,
+      "fde_1s_m": 0.32442930340766907
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "mse_gru",
+      "n_windows": 5555,
+      "ade_m": 0.11333884298801422,
+      "fde_1s_m": 0.20803192257881165
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "gaussian_gru",
+      "n_windows": 5555,
+      "ade_m": 0.11808862537145615,
+      "fde_1s_m": 0.21817640960216522
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "mse_gru_shrink",
+      "n_windows": 5555,
+      "ade_m": 0.11134547359961738,
+      "fde_1s_m": 0.20194277428066415
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "gaussian_gru_shrink",
+      "n_windows": 5555,
+      "ade_m": 0.11378199505176606,
+      "fde_1s_m": 0.20696421605785684
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "last_position",
+      "n_windows": 16132,
+      "ade_m": 0.23357020318508148,
+      "fde_1s_m": 0.39759305119514465
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "constant_velocity",
+      "n_windows": 16132,
+      "ade_m": 0.16446632358683308,
+      "fde_1s_m": 0.34054210323351336
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "kalman",
+      "n_windows": 16132,
+      "ade_m": 0.2099812924861908,
+      "fde_1s_m": 0.40025150775909424
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "mse_gru",
+      "n_windows": 16132,
+      "ade_m": 0.14992760121822357,
+      "fde_1s_m": 0.2949678301811218
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "gaussian_gru",
+      "n_windows": 16132,
+      "ade_m": 0.15111143887043,
+      "fde_1s_m": 0.3049800395965576
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "mse_gru_shrink",
+      "n_windows": 16132,
+      "ade_m": 0.1619463617971239,
+      "fde_1s_m": 0.3189630323603564
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "gaussian_gru_shrink",
+      "n_windows": 16132,
+      "ade_m": 0.1646208550888115,
+      "fde_1s_m": 0.3307993659250554
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "last_position",
+      "n_windows": 11697,
+      "ade_m": 0.19453378021717072,
+      "fde_1s_m": 0.3288184404373169
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "constant_velocity",
+      "n_windows": 11697,
+      "ade_m": 0.15544001265032453,
+      "fde_1s_m": 0.31669479540843715
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "kalman",
+      "n_windows": 11697,
+      "ade_m": 0.19010771811008453,
+      "fde_1s_m": 0.3589136302471161
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "mse_gru",
+      "n_windows": 11697,
+      "ade_m": 0.13349571824073792,
+      "fde_1s_m": 0.2574073374271393
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "gaussian_gru",
+      "n_windows": 11697,
+      "ade_m": 0.13553200662136078,
+      "fde_1s_m": 0.26767706871032715
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "mse_gru_shrink",
+      "n_windows": 11697,
+      "ade_m": 0.14042336194081614,
+      "fde_1s_m": 0.2705064482689231
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "gaussian_gru_shrink",
+      "n_windows": 11697,
+      "ade_m": 0.14246797165876104,
+      "fde_1s_m": 0.27978160614977166
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "last_position",
+      "n_windows": 11106,
+      "ade_m": 0.20820796489715576,
+      "fde_1s_m": 0.35192328691482544
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "constant_velocity",
+      "n_windows": 11106,
+      "ade_m": 0.16158806240892373,
+      "fde_1s_m": 0.330482659768376
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "kalman",
+      "n_windows": 11106,
+      "ade_m": 0.1996014565229416,
+      "fde_1s_m": 0.3792376220226288
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "mse_gru",
+      "n_windows": 11106,
+      "ade_m": 0.13927744328975677,
+      "fde_1s_m": 0.27055951952934265
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "gaussian_gru",
+      "n_windows": 11106,
+      "ade_m": 0.14143235981464386,
+      "fde_1s_m": 0.27995720505714417
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "mse_gru_shrink",
+      "n_windows": 11106,
+      "ade_m": 0.1478707713879439,
+      "fde_1s_m": 0.2872332439195253
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "gaussian_gru_shrink",
+      "n_windows": 11106,
+      "ade_m": 0.1508356944790879,
+      "fde_1s_m": 0.2973373856385863
+    }
+  ],
+  "paired_effects": [
+    {
+      "final_minus": "last_position",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.050098493695259094,
+      "environment_bootstrap_95_ci_m": [
+        -0.09412562288343906,
+        -0.00972365029156208
+      ],
+      "environment_win_rate": 0.75
+    },
+    {
+      "final_minus": "constant_velocity",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.025660141321978934,
+      "environment_bootstrap_95_ci_m": [
+        -0.032309993910354294,
+        -0.01975770066338281
+      ],
+      "environment_win_rate": 1.0
+    },
+    {
+      "final_minus": "kalman",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.05241612810641527,
+      "environment_bootstrap_95_ci_m": [
+        -0.06841786578297615,
+        -0.03472417499870062
+      ],
+      "environment_win_rate": 1.0
+    },
+    {
+      "final_minus": "gaussian_gru",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.002172720618546009,
+      "environment_bootstrap_95_ci_m": [
+        -0.004991041496396065,
+        -4.227831959724426e-05
+      ],
+      "environment_win_rate": 0.75
+    },
+    {
+      "final_minus": "mse_gru_shrink",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.00474174209384968,
+      "environment_bootstrap_95_ci_m": [
+        -0.014811653836733173,
+        0.0033547162769134217
+      ],
+      "environment_win_rate": 0.75
+    },
+    {
+      "final_minus": "gaussian_gru_shrink",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.006928910137729017,
+      "environment_bootstrap_95_ci_m": [
+        -0.020630980630775272,
+        0.003226313834465191
+      ],
+      "environment_win_rate": 0.75
+    }
+  ],
+  "freeze_note": "No hyperparameter, coefficient, calibration-scale, or model-fitting change was made using test targets."
+}

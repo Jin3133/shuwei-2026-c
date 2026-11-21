@@ -1,0 +1,19 @@
+experiment_id: 20261121_19_q1_frozen_test
+purpose: One-time frozen test evaluation of Q1 physical baselines, GRUs, and validation-selected horizon shrinkage.
+source: work/incoming/model_delivery_20261120/model-delivery/q1_windows.parquet
+test_npz: work/windows/delivery_test_v1/q1_test.npz
+official_records: work/official_index_audit/official_records.csv
+shrinkage_results: experiments/20261121_18_q1_horizon_shrinkage/results.json
+conformal_report: work/results/q1_delivery_gru_gaussian_validation.json
+split: test
+horizons_s: [0.2, 0.5, 1.0]
+models:
+  mse_gru:
+    config: configs/q1_delivery_gru_mse.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_mse/best.pt
+  gaussian_gru:
+    config: configs/q1_delivery_gru_gaussian.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+kalman: {process_variance: 0.001, measurement_variance: 0.001}
+bootstrap: {unit: environment_id, replicates: 10000, seed: 2026}
+information_rule: Checkpoints, baselines, shrinkage coefficients, and conformal scales were frozen on train/validation before test targets were evaluated; test results are not used for further tuning.
