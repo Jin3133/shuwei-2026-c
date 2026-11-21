@@ -1,0 +1,17 @@
+experiment_id: 20261121_21_q2_sample_uncertainty
+purpose: Compare pooled and environment-robust calibration in sample-specific uncertainty-triggered Q2 replay.
+split: validation
+return_delay_s: 0.2
+request_cost: 1.0
+request_budget: 2
+fixed_interval_s: 0.5
+uncertainty_thresholds_m: [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.50]
+shrinkage_decay: 0.5866147
+objective_request_weight_m: 0.02
+objective_request_weights_m: [0.0, 0.0025, 0.005, 0.0075, 0.01, 0.0125, 0.015, 0.0175, 0.02, 0.025]
+model_config: configs/q1_delivery_gru_gaussian.yaml
+checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+normalization: work/incoming/model_delivery_20261120/model-delivery/normalization.json
+robust_calibration_report: experiments/20261121_20_q1_robust_calibration/results.json
+private_scoring_table: work/incoming/model_delivery_20261120/model-delivery/q2_masks.parquet
+information_rule: Sample-specific variance and validation-frozen scales are visible to the policy. Masked targets are used only by the replay evaluator after each action.

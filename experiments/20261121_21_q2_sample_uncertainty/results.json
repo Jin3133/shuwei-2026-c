@@ -1,0 +1,1318 @@
+{
+  "experiment_id": "20261121_21_q2_sample_uncertainty",
+  "git_revision": "c8c367cd1d7e5f52e3448db4b4c71b9725666372",
+  "split": "validation",
+  "uncertainty_definition": "sample Gaussian radial standard deviation multiplied by validation-frozen conformal scale",
+  "frozen_scales": {
+    "pooled_validation": [
+      1.7095435857772827,
+      1.6882740259170532,
+      1.4996652603149414
+    ],
+    "worst_validation_environment": [
+      1.766659140586853,
+      2.0107421875,
+      2.0762779712677
+    ]
+  },
+  "conditions": {
+    "return_delay_s": 0.2,
+    "request_cost": 1.0,
+    "request_budget": 2,
+    "fixed_interval_s": 0.5,
+    "objective_request_weight_m": 0.02
+  },
+  "pareto_policies": [
+    "fixed_interval",
+    "no_request",
+    "pooled_validation_0.15",
+    "pooled_validation_0.20",
+    "pooled_validation_0.25",
+    "pooled_validation_0.30",
+    "pooled_validation_0.35",
+    "pooled_validation_0.40",
+    "pooled_validation_0.50",
+    "worst_validation_environment_0.20",
+    "worst_validation_environment_0.25",
+    "worst_validation_environment_0.30",
+    "worst_validation_environment_0.35",
+    "worst_validation_environment_0.40",
+    "worst_validation_environment_0.50"
+  ],
+  "objective_sensitivity": [
+    {
+      "request_weight_m": 0.0,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.05171137145486792,
+      "runner_up_policy": "worst_validation_environment_0.15",
+      "runner_up_objective": 0.05238508895344135
+    },
+    {
+      "request_weight_m": 0.0025,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.054580704108968786,
+      "runner_up_policy": "worst_validation_environment_0.15",
+      "runner_up_objective": 0.05537986735384889
+    },
+    {
+      "request_weight_m": 0.005,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.05745003676306965,
+      "runner_up_policy": "worst_validation_environment_0.15",
+      "runner_up_objective": 0.05837464575425643
+    },
+    {
+      "request_weight_m": 0.0075,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.06031936941717052,
+      "runner_up_policy": "worst_validation_environment_0.20",
+      "runner_up_objective": 0.06122328623047914
+    },
+    {
+      "request_weight_m": 0.01,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.06318870207127139,
+      "runner_up_policy": "worst_validation_environment_0.25",
+      "runner_up_objective": 0.06381358261965356
+    },
+    {
+      "request_weight_m": 0.0125,
+      "best_policy": "fixed_interval",
+      "best_objective": 0.06605803472537225,
+      "runner_up_policy": "worst_validation_environment_0.25",
+      "runner_up_objective": 0.06613655765786038
+    },
+    {
+      "request_weight_m": 0.015,
+      "best_policy": "pooled_validation_0.25",
+      "best_objective": 0.067885724598559,
+      "runner_up_policy": "worst_validation_environment_0.35",
+      "runner_up_objective": 0.06799593431629972
+    },
+    {
+      "request_weight_m": 0.0175,
+      "best_policy": "pooled_validation_0.25",
+      "best_objective": 0.06962222485327119,
+      "runner_up_policy": "worst_validation_environment_0.35",
+      "runner_up_objective": 0.06965156345537256
+    },
+    {
+      "request_weight_m": 0.02,
+      "best_policy": "no_request",
+      "best_objective": 0.07017852557571996,
+      "runner_up_policy": "worst_validation_environment_0.40",
+      "runner_up_objective": 0.07124139785194558
+    },
+    {
+      "request_weight_m": 0.025,
+      "best_policy": "no_request",
+      "best_objective": 0.07017852557571996,
+      "runner_up_policy": "pooled_validation_0.50",
+      "runner_up_objective": 0.07255174056095127
+    }
+  ],
+  "aggregate": [
+    {
+      "policy": "fixed_interval",
+      "n": 3926,
+      "mean_path_error_m": 0.05171137145486792,
+      "mean_endpoint_error_m": 0.08969034899452659,
+      "mean_requests": 1.1477330616403465,
+      "mean_cost": 1.1477330616403465,
+      "mean_wait_exposure_s": 0.22954661232806933,
+      "selection_objective": 0.07466603268767485
+    },
+    {
+      "policy": "no_request",
+      "n": 3926,
+      "mean_path_error_m": 0.07017852557571996,
+      "mean_endpoint_error_m": 0.12697659099366262,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure_s": 0.0,
+      "selection_objective": 0.07017852557571996
+    },
+    {
+      "policy": "pooled_validation_0.05",
+      "n": 3926,
+      "mean_path_error_m": 0.05843018786140738,
+      "mean_endpoint_error_m": 0.11587231146165966,
+      "mean_requests": 1.5511971472236372,
+      "mean_cost": 1.5511971472236372,
+      "mean_wait_exposure_s": 0.31023942944472754,
+      "selection_objective": 0.08945413080588012
+    },
+    {
+      "policy": "pooled_validation_0.10",
+      "n": 3926,
+      "mean_path_error_m": 0.053088157864535454,
+      "mean_endpoint_error_m": 0.10056036988253347,
+      "mean_requests": 1.4070300560366786,
+      "mean_cost": 1.4070300560366786,
+      "mean_wait_exposure_s": 0.28140601120733577,
+      "selection_objective": 0.08122875898526903
+    },
+    {
+      "policy": "pooled_validation_0.15",
+      "n": 3926,
+      "mean_path_error_m": 0.05310171841548415,
+      "mean_endpoint_error_m": 0.08823021161119929,
+      "mean_requests": 1.118186449312277,
+      "mean_cost": 1.118186449312277,
+      "mean_wait_exposure_s": 0.22363728986245546,
+      "selection_objective": 0.0754654474017297
+    },
+    {
+      "policy": "pooled_validation_0.20",
+      "n": 3926,
+      "mean_path_error_m": 0.05514292681487775,
+      "mean_endpoint_error_m": 0.08630660862174329,
+      "mean_requests": 0.9266428935303107,
+      "mean_cost": 0.9266428935303107,
+      "mean_wait_exposure_s": 0.18532857870606217,
+      "selection_objective": 0.07367578468548397
+    },
+    {
+      "policy": "pooled_validation_0.25",
+      "n": 3926,
+      "mean_path_error_m": 0.057466723070285955,
+      "mean_endpoint_error_m": 0.0898828607587782,
+      "mean_requests": 0.6946001018848701,
+      "mean_cost": 0.6946001018848701,
+      "mean_wait_exposure_s": 0.13892002037697404,
+      "selection_objective": 0.07135872510798336
+    },
+    {
+      "policy": "pooled_validation_0.30",
+      "n": 3926,
+      "mean_path_error_m": 0.06059167065090995,
+      "mean_endpoint_error_m": 0.09333709752764976,
+      "mean_requests": 0.5458481915435558,
+      "mean_cost": 0.5458481915435558,
+      "mean_wait_exposure_s": 0.10916963830871118,
+      "selection_objective": 0.07150863448178107
+    },
+    {
+      "policy": "pooled_validation_0.35",
+      "n": 3926,
+      "mean_path_error_m": 0.06294349439070156,
+      "mean_endpoint_error_m": 0.09913942297464032,
+      "mean_requests": 0.44141619969434537,
+      "mean_cost": 0.44141619969434537,
+      "mean_wait_exposure_s": 0.08828323993886908,
+      "selection_objective": 0.07177181838458846
+    },
+    {
+      "policy": "pooled_validation_0.40",
+      "n": 3926,
+      "mean_path_error_m": 0.06508438482226933,
+      "mean_endpoint_error_m": 0.09909951100809779,
+      "mean_requests": 0.33290881304126335,
+      "mean_cost": 0.33290881304126335,
+      "mean_wait_exposure_s": 0.06658176260825269,
+      "selection_objective": 0.0717425610830946
+    },
+    {
+      "policy": "pooled_validation_0.50",
+      "n": 3926,
+      "mean_path_error_m": 0.06800512823288199,
+      "mean_endpoint_error_m": 0.11513852560773712,
+      "mean_requests": 0.18186449312277128,
+      "mean_cost": 0.18186449312277128,
+      "mean_wait_exposure_s": 0.036372898624554256,
+      "selection_objective": 0.07164241809533742
+    },
+    {
+      "policy": "worst_validation_environment_0.05",
+      "n": 3926,
+      "mean_path_error_m": 0.05875080170289434,
+      "mean_endpoint_error_m": 0.1165062696543291,
+      "mean_requests": 1.575394803871625,
+      "mean_cost": 1.575394803871625,
+      "mean_wait_exposure_s": 0.315078960774325,
+      "selection_objective": 0.09025869778032683
+    },
+    {
+      "policy": "worst_validation_environment_0.10",
+      "n": 3926,
+      "mean_path_error_m": 0.05407640880564918,
+      "mean_endpoint_error_m": 0.10467532904183062,
+      "mean_requests": 1.4156902699949057,
+      "mean_cost": 1.4156902699949057,
+      "mean_wait_exposure_s": 0.2831380539989812,
+      "selection_objective": 0.08239021420554729
+    },
+    {
+      "policy": "worst_validation_environment_0.15",
+      "n": 3926,
+      "mean_path_error_m": 0.05238508895344135,
+      "mean_endpoint_error_m": 0.09167645015342475,
+      "mean_requests": 1.1979113601630158,
+      "mean_cost": 1.1979113601630158,
+      "mean_wait_exposure_s": 0.23958227203260318,
+      "selection_objective": 0.07634331615670167
+    },
+    {
+      "policy": "worst_validation_environment_0.20",
+      "n": 3926,
+      "mean_path_error_m": 0.05314445281224175,
+      "mean_endpoint_error_m": 0.08632955670339325,
+      "mean_requests": 1.077177789098319,
+      "mean_cost": 1.077177789098319,
+      "mean_wait_exposure_s": 0.21543555781966384,
+      "selection_objective": 0.07468800859420813
+    },
+    {
+      "policy": "worst_validation_environment_0.25",
+      "n": 3926,
+      "mean_path_error_m": 0.054521682466826246,
+      "mean_endpoint_error_m": 0.08217242801231107,
+      "mean_requests": 0.9291900152827305,
+      "mean_cost": 0.9291900152827305,
+      "mean_wait_exposure_s": 0.18583800305654613,
+      "selection_objective": 0.07310548277248086
+    },
+    {
+      "policy": "worst_validation_environment_0.30",
+      "n": 3926,
+      "mean_path_error_m": 0.05631101322117358,
+      "mean_endpoint_error_m": 0.08847779057460958,
+      "mean_requests": 0.8497198166072338,
+      "mean_cost": 0.8497198166072338,
+      "mean_wait_exposure_s": 0.1699439633214468,
+      "selection_objective": 0.07330540955331825
+    },
+    {
+      "policy": "worst_validation_environment_0.35",
+      "n": 3926,
+      "mean_path_error_m": 0.05806215948186263,
+      "mean_endpoint_error_m": 0.09066762179150163,
+      "mean_requests": 0.6622516556291391,
+      "mean_cost": 0.6622516556291391,
+      "mean_wait_exposure_s": 0.13245033112582782,
+      "selection_objective": 0.07130719259444541
+    },
+    {
+      "policy": "worst_validation_environment_0.40",
+      "n": 3926,
+      "mean_path_error_m": 0.06011047579387121,
+      "mean_endpoint_error_m": 0.09136301533087561,
+      "mean_requests": 0.5565461029037188,
+      "mean_cost": 0.5565461029037188,
+      "mean_wait_exposure_s": 0.11130922058074379,
+      "selection_objective": 0.07124139785194558
+    },
+    {
+      "policy": "worst_validation_environment_0.50",
+      "n": 3926,
+      "mean_path_error_m": 0.06322635616942872,
+      "mean_endpoint_error_m": 0.10001497685880173,
+      "mean_requests": 0.43199184921039224,
+      "mean_cost": 0.43199184921039224,
+      "mean_wait_exposure_s": 0.08639836984207847,
+      "selection_objective": 0.07186619315363657
+    }
+  ],
+  "by_duration": [
+    {
+      "mask_duration_s": 0.2,
+      "policy": "fixed_interval",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "no_request",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.05",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.33045622688039455,
+      "mean_cost": 0.33045622688039455,
+      "mean_wait_exposure": 0.06609124537607891
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.10",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0468557336621455,
+      "mean_cost": 0.0468557336621455,
+      "mean_wait_exposure": 0.0093711467324291
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.15",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.014796547472256474,
+      "mean_cost": 0.014796547472256474,
+      "mean_wait_exposure": 0.0029593094944512953
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.20",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.007398273736128237,
+      "mean_cost": 0.007398273736128237,
+      "mean_wait_exposure": 0.0014796547472256472
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.25",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0036991368680641184,
+      "mean_cost": 0.0036991368680641184,
+      "mean_wait_exposure": 0.0007398273736128238
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.30",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.35",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.40",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "pooled_validation_0.50",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.05",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.34525277435265106,
+      "mean_cost": 0.34525277435265106,
+      "mean_wait_exposure": 0.0690505548705302
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.10",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.05425400739827373,
+      "mean_cost": 0.05425400739827373,
+      "mean_wait_exposure": 0.010850801479654748
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.15",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.01726263871763255,
+      "mean_cost": 0.01726263871763255,
+      "mean_wait_exposure": 0.0034525277435265107
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.20",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.008631319358816275,
+      "mean_cost": 0.008631319358816275,
+      "mean_wait_exposure": 0.0017262638717632553
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.25",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0036991368680641184,
+      "mean_cost": 0.0036991368680641184,
+      "mean_wait_exposure": 0.0007398273736128238
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.30",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.002466091245376079,
+      "mean_cost": 0.002466091245376079,
+      "mean_wait_exposure": 0.0004932182490752158
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.35",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.40",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.2,
+      "policy": "worst_validation_environment_0.50",
+      "n": 811,
+      "mean_path_error": 0.014549455442049641,
+      "mean_endpoint_error": 0.026590199678519378,
+      "mean_requests": 0.0012330456226880395,
+      "mean_cost": 0.0012330456226880395,
+      "mean_wait_exposure": 0.0002466091245376079
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "fixed_interval",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.4282178217821782,
+      "mean_cost": 0.4282178217821782,
+      "mean_wait_exposure": 0.08564356435643564
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "no_request",
+      "n": 808,
+      "mean_path_error": 0.0372033985513488,
+      "mean_endpoint_error": 0.07235436614863641,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.05",
+      "n": 808,
+      "mean_path_error": 0.03407593882720362,
+      "mean_endpoint_error": 0.05351118428791961,
+      "mean_requests": 1.495049504950495,
+      "mean_cost": 1.495049504950495,
+      "mean_wait_exposure": 0.299009900990099
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.10",
+      "n": 808,
+      "mean_path_error": 0.03628134101449436,
+      "mean_endpoint_error": 0.06678927995827952,
+      "mean_requests": 1.0853960396039604,
+      "mean_cost": 1.0853960396039604,
+      "mean_wait_exposure": 0.21707920792079213
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.15",
+      "n": 808,
+      "mean_path_error": 0.03690204383056658,
+      "mean_endpoint_error": 0.07024913341015358,
+      "mean_requests": 0.36014851485148514,
+      "mean_cost": 0.36014851485148514,
+      "mean_wait_exposure": 0.07202970297029704
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.20",
+      "n": 808,
+      "mean_path_error": 0.03706681857526479,
+      "mean_endpoint_error": 0.07144181558851764,
+      "mean_requests": 0.15717821782178218,
+      "mean_cost": 0.15717821782178218,
+      "mean_wait_exposure": 0.031435643564356436
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.25",
+      "n": 808,
+      "mean_path_error": 0.03713076592165513,
+      "mean_endpoint_error": 0.0717900940774435,
+      "mean_requests": 0.0655940594059406,
+      "mean_cost": 0.0655940594059406,
+      "mean_wait_exposure": 0.01311881188118812
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.30",
+      "n": 808,
+      "mean_path_error": 0.0371621450878926,
+      "mean_endpoint_error": 0.07205031194655864,
+      "mean_requests": 0.03094059405940594,
+      "mean_cost": 0.03094059405940594,
+      "mean_wait_exposure": 0.006188118811881188
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.35",
+      "n": 808,
+      "mean_path_error": 0.03718234621333995,
+      "mean_endpoint_error": 0.07217449823769354,
+      "mean_requests": 0.019801980198019802,
+      "mean_cost": 0.019801980198019802,
+      "mean_wait_exposure": 0.0039603960396039604
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.40",
+      "n": 808,
+      "mean_path_error": 0.03718774715191604,
+      "mean_endpoint_error": 0.07232594676955942,
+      "mean_requests": 0.012376237623762377,
+      "mean_cost": 0.012376237623762377,
+      "mean_wait_exposure": 0.0024752475247524753
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "pooled_validation_0.50",
+      "n": 808,
+      "mean_path_error": 0.03718665209718061,
+      "mean_endpoint_error": 0.07228864064252821,
+      "mean_requests": 0.006188118811881188,
+      "mean_cost": 0.006188118811881188,
+      "mean_wait_exposure": 0.0012376237623762376
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.05",
+      "n": 808,
+      "mean_path_error": 0.03391779263781738,
+      "mean_endpoint_error": 0.0521844336493873,
+      "mean_requests": 1.5977722772277227,
+      "mean_cost": 1.5977722772277227,
+      "mean_wait_exposure": 0.3195544554455446
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.10",
+      "n": 808,
+      "mean_path_error": 0.03607528246146179,
+      "mean_endpoint_error": 0.06489928532414958,
+      "mean_requests": 1.113861386138614,
+      "mean_cost": 1.113861386138614,
+      "mean_wait_exposure": 0.22277227722772278
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.15",
+      "n": 808,
+      "mean_path_error": 0.03684117228863232,
+      "mean_endpoint_error": 0.07001205626840595,
+      "mean_requests": 0.5581683168316832,
+      "mean_cost": 0.5581683168316832,
+      "mean_wait_exposure": 0.11163366336633662
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.20",
+      "n": 808,
+      "mean_path_error": 0.03699312426868086,
+      "mean_endpoint_error": 0.07078079086949686,
+      "mean_requests": 0.25866336633663367,
+      "mean_cost": 0.25866336633663367,
+      "mean_wait_exposure": 0.05173267326732674
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.25",
+      "n": 808,
+      "mean_path_error": 0.037114073798960985,
+      "mean_endpoint_error": 0.07162896756380793,
+      "mean_requests": 0.12995049504950495,
+      "mean_cost": 0.12995049504950495,
+      "mean_wait_exposure": 0.02599009900990099
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.30",
+      "n": 808,
+      "mean_path_error": 0.03714672609636012,
+      "mean_endpoint_error": 0.07206705000073918,
+      "mean_requests": 0.0594059405940594,
+      "mean_cost": 0.0594059405940594,
+      "mean_wait_exposure": 0.011881188118811881
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.35",
+      "n": 808,
+      "mean_path_error": 0.0371621450878926,
+      "mean_endpoint_error": 0.07205031194655864,
+      "mean_requests": 0.03341584158415842,
+      "mean_cost": 0.03341584158415842,
+      "mean_wait_exposure": 0.006683168316831684
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.40",
+      "n": 808,
+      "mean_path_error": 0.03717415959612882,
+      "mean_endpoint_error": 0.07212213343275105,
+      "mean_requests": 0.02103960396039604,
+      "mean_cost": 0.02103960396039604,
+      "mean_wait_exposure": 0.004207920792079208
+    },
+    {
+      "mask_duration_s": 0.5,
+      "policy": "worst_validation_environment_0.50",
+      "n": 808,
+      "mean_path_error": 0.03718665209718061,
+      "mean_endpoint_error": 0.07228864064252821,
+      "mean_requests": 0.008663366336633664,
+      "mean_cost": 0.008663366336633664,
+      "mean_wait_exposure": 0.0017326732673267325
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "fixed_interval",
+      "n": 798,
+      "mean_path_error": 0.057404854698657776,
+      "mean_endpoint_error": 0.09344755113576733,
+      "mean_requests": 1.431077694235589,
+      "mean_cost": 1.431077694235589,
+      "mean_wait_exposure": 0.28621553884711776
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "no_request",
+      "n": 798,
+      "mean_path_error": 0.0724121742366112,
+      "mean_endpoint_error": 0.13745362221918106,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.05",
+      "n": 798,
+      "mean_path_error": 0.05234588200674679,
+      "mean_endpoint_error": 0.09885037459632605,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.10",
+      "n": 798,
+      "mean_path_error": 0.05380704794593357,
+      "mean_endpoint_error": 0.08688343114938568,
+      "mean_requests": 1.993734335839599,
+      "mean_cost": 1.993734335839599,
+      "mean_wait_exposure": 0.3987468671679198
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.15",
+      "n": 798,
+      "mean_path_error": 0.05808727057683493,
+      "mean_endpoint_error": 0.07901957714504874,
+      "mean_requests": 1.3395989974937343,
+      "mean_cost": 1.3395989974937343,
+      "mean_wait_exposure": 0.2679197994987469
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.20",
+      "n": 798,
+      "mean_path_error": 0.06423399367254061,
+      "mean_endpoint_error": 0.0995883071417523,
+      "mean_requests": 1.1466165413533835,
+      "mean_cost": 1.1466165413533835,
+      "mean_wait_exposure": 0.22932330827067668
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.25",
+      "n": 798,
+      "mean_path_error": 0.06773242652030521,
+      "mean_endpoint_error": 0.11269603684525768,
+      "mean_requests": 0.6791979949874687,
+      "mean_cost": 0.6791979949874687,
+      "mean_wait_exposure": 0.13583959899749373
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.30",
+      "n": 798,
+      "mean_path_error": 0.0699450836943346,
+      "mean_endpoint_error": 0.12515731199782984,
+      "mean_requests": 0.36466165413533835,
+      "mean_cost": 0.36466165413533835,
+      "mean_wait_exposure": 0.07293233082706767
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.35",
+      "n": 798,
+      "mean_path_error": 0.0710911683905857,
+      "mean_endpoint_error": 0.13043422846063646,
+      "mean_requests": 0.20300751879699247,
+      "mean_cost": 0.20300751879699247,
+      "mean_wait_exposure": 0.04060150375939849
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.40",
+      "n": 798,
+      "mean_path_error": 0.07164931278405706,
+      "mean_endpoint_error": 0.13352676320481907,
+      "mean_requests": 0.10651629072681704,
+      "mean_cost": 0.10651629072681704,
+      "mean_wait_exposure": 0.021303258145363407
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "pooled_validation_0.50",
+      "n": 798,
+      "mean_path_error": 0.07202029109669282,
+      "mean_endpoint_error": 0.13554754203892366,
+      "mean_requests": 0.03634085213032581,
+      "mean_cost": 0.03634085213032581,
+      "mean_wait_exposure": 0.007268170426065164
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.05",
+      "n": 798,
+      "mean_path_error": 0.05263229723368198,
+      "mean_endpoint_error": 0.10154518245025189,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.10",
+      "n": 798,
+      "mean_path_error": 0.05277797367381603,
+      "mean_endpoint_error": 0.0832676992278055,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.15",
+      "n": 798,
+      "mean_path_error": 0.05594520942103894,
+      "mean_endpoint_error": 0.0848866955986481,
+      "mean_requests": 1.5288220551378446,
+      "mean_cost": 1.5288220551378446,
+      "mean_wait_exposure": 0.3057644110275689
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.20",
+      "n": 798,
+      "mean_path_error": 0.05895916963897615,
+      "mean_endpoint_error": 0.07720480163280366,
+      "mean_requests": 1.2468671679197996,
+      "mean_cost": 1.2468671679197996,
+      "mean_wait_exposure": 0.24937343358395989
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.25",
+      "n": 798,
+      "mean_path_error": 0.06363429075786614,
+      "mean_endpoint_error": 0.08987030843148841,
+      "mean_requests": 1.1228070175438596,
+      "mean_cost": 1.1228070175438596,
+      "mean_wait_exposure": 0.2245614035087719
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.30",
+      "n": 798,
+      "mean_path_error": 0.06665966520961845,
+      "mean_endpoint_error": 0.1050927561732861,
+      "mean_requests": 1.0401002506265664,
+      "mean_cost": 1.0401002506265664,
+      "mean_wait_exposure": 0.20802005012531327
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.35",
+      "n": 798,
+      "mean_path_error": 0.06887649564253552,
+      "mean_endpoint_error": 0.11720942193950036,
+      "mean_requests": 0.6240601503759399,
+      "mean_cost": 0.6240601503759399,
+      "mean_wait_exposure": 0.12481203007518796
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.40",
+      "n": 798,
+      "mean_path_error": 0.07027183828889948,
+      "mean_endpoint_error": 0.12503263339795895,
+      "mean_requests": 0.39849624060150374,
+      "mean_cost": 0.39849624060150374,
+      "mean_wait_exposure": 0.07969924812030074
+    },
+    {
+      "mask_duration_s": 1.0,
+      "policy": "worst_validation_environment_0.50",
+      "n": 798,
+      "mean_path_error": 0.07153693072976493,
+      "mean_endpoint_error": 0.13268590257627316,
+      "mean_requests": 0.17167919799498746,
+      "mean_cost": 0.17167919799498746,
+      "mean_wait_exposure": 0.034335839598997504
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "fixed_interval",
+      "n": 768,
+      "mean_path_error": 0.06801477500241032,
+      "mean_endpoint_error": 0.09265778504186055,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "no_request",
+      "n": 768,
+      "mean_path_error": 0.10347076123684372,
+      "mean_endpoint_error": 0.18707728229618667,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.05",
+      "n": 768,
+      "mean_path_error": 0.08265300823413937,
+      "mean_endpoint_error": 0.17860379597204568,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.10",
+      "n": 768,
+      "mean_path_error": 0.07003046404360587,
+      "mean_endpoint_error": 0.13161672885598705,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.15",
+      "n": 768,
+      "mean_path_error": 0.0731547576669248,
+      "mean_endpoint_error": 0.11331264802999245,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.20",
+      "n": 768,
+      "mean_path_error": 0.07545320103157337,
+      "mean_endpoint_error": 0.11304918741228114,
+      "mean_requests": 1.4427083333333333,
+      "mean_cost": 1.4427083333333333,
+      "mean_wait_exposure": 0.2885416666666667
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.25",
+      "n": 768,
+      "mean_path_error": 0.08043909689139099,
+      "mean_endpoint_error": 0.101451166326752,
+      "mean_requests": 1.2213541666666667,
+      "mean_cost": 1.2213541666666667,
+      "mean_wait_exposure": 0.24427083333333335
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.30",
+      "n": 768,
+      "mean_path_error": 0.08915530321124755,
+      "mean_endpoint_error": 0.10688842921344095,
+      "mean_requests": 1.0963541666666667,
+      "mean_cost": 1.0963541666666667,
+      "mean_wait_exposure": 0.21927083333333333
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.35",
+      "n": 768,
+      "mean_path_error": 0.09477169401392405,
+      "mean_endpoint_error": 0.1437017703362761,
+      "mean_requests": 0.8893229166666666,
+      "mean_cost": 0.8893229166666666,
+      "mean_wait_exposure": 0.17786458333333333
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.40",
+      "n": 768,
+      "mean_path_error": 0.09800848516687659,
+      "mean_endpoint_error": 0.15276661832948293,
+      "mean_requests": 0.52734375,
+      "mean_cost": 0.52734375,
+      "mean_wait_exposure": 0.10546875
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "pooled_validation_0.50",
+      "n": 768,
+      "mean_path_error": 0.10157781436785505,
+      "mean_endpoint_error": 0.1764269950520214,
+      "mean_requests": 0.21223958333333334,
+      "mean_cost": 0.21223958333333334,
+      "mean_wait_exposure": 0.04244791666666667
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.05",
+      "n": 768,
+      "mean_path_error": 0.08340823697769635,
+      "mean_endpoint_error": 0.18001599462013584,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.10",
+      "n": 768,
+      "mean_path_error": 0.07179664430646082,
+      "mean_endpoint_error": 0.14683195908948626,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.15",
+      "n": 768,
+      "mean_path_error": 0.06964709884633251,
+      "mean_endpoint_error": 0.10437093040772771,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.20",
+      "n": 768,
+      "mean_path_error": 0.07372785189509058,
+      "mean_endpoint_error": 0.11353909109488207,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.25",
+      "n": 768,
+      "mean_path_error": 0.07516432105253686,
+      "mean_endpoint_error": 0.11448603741373238,
+      "mean_requests": 1.5130208333333333,
+      "mean_cost": 1.5130208333333333,
+      "mean_wait_exposure": 0.3026041666666667
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.30",
+      "n": 768,
+      "mean_path_error": 0.07751506579014467,
+      "mean_endpoint_error": 0.11065388777199986,
+      "mean_requests": 1.2994791666666667,
+      "mean_cost": 1.2994791666666667,
+      "mean_wait_exposure": 0.2598958333333333
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.35",
+      "n": 768,
+      "mean_path_error": 0.08146213889718226,
+      "mean_endpoint_error": 0.10380933868120046,
+      "mean_requests": 1.17578125,
+      "mean_cost": 1.17578125,
+      "mean_wait_exposure": 0.23515624999999998
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.40",
+      "n": 768,
+      "mean_path_error": 0.08704860297671951,
+      "mean_endpoint_error": 0.09537160308932068,
+      "mean_requests": 1.0859375,
+      "mean_cost": 1.0859375,
+      "mean_wait_exposure": 0.2171875
+    },
+    {
+      "mask_duration_s": 1.5,
+      "policy": "worst_validation_environment_0.50",
+      "n": 768,
+      "mean_path_error": 0.09544866547868384,
+      "mean_endpoint_error": 0.1432848986944235,
+      "mean_requests": 0.9049479166666666,
+      "mean_cost": 0.9049479166666666,
+      "mean_wait_exposure": 0.1809895833333333
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "fixed_interval",
+      "n": 741,
+      "mean_path_error": 0.0851747215754917,
+      "mean_endpoint_error": 0.1705330710481008,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "no_request",
+      "n": 741,
+      "mean_path_error": 0.13010860640563132,
+      "mean_endpoint_error": 0.22283370191547117,
+      "mean_requests": 0.0,
+      "mean_cost": 0.0,
+      "mean_wait_exposure": 0.0
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.05",
+      "n": 741,
+      "mean_path_error": 0.11445941490256356,
+      "mean_endpoint_error": 0.23490241797592212,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.10",
+      "n": 741,
+      "mean_path_error": 0.09526012851094222,
+      "mean_endpoint_error": 0.20088393548535693,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.15",
+      "n": 741,
+      "mean_path_error": 0.08680754509052391,
+      "mean_endpoint_error": 0.15922283778961135,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.20",
+      "n": 741,
+      "mean_path_error": 0.08844095487173834,
+      "mean_endpoint_error": 0.12585271455116387,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.25",
+      "n": 741,
+      "mean_path_error": 0.09174815758427965,
+      "mean_endpoint_error": 0.14232541193474824,
+      "mean_requests": 1.6072874493927125,
+      "mean_cost": 1.6072874493927125,
+      "mean_wait_exposure": 0.3214574898785425
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.30",
+      "n": 741,
+      "mean_path_error": 0.09685401852447485,
+      "mean_endpoint_error": 0.14128784384785897,
+      "mean_requests": 1.3279352226720649,
+      "mean_cost": 1.3279352226720649,
+      "mean_wait_exposure": 0.26558704453441295
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.35",
+      "n": 741,
+      "mean_path_error": 0.10223724898195995,
+      "mean_endpoint_error": 0.1280570231487913,
+      "mean_requests": 1.1754385964912282,
+      "mean_cost": 1.1754385964912282,
+      "mean_wait_exposure": 0.2350877192982456
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.40",
+      "n": 741,
+      "mean_path_error": 0.10961851354944696,
+      "mean_endpoint_error": 0.11495484935792195,
+      "mean_requests": 1.087719298245614,
+      "mean_cost": 1.087719298245614,
+      "mean_wait_exposure": 0.2175438596491228
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "pooled_validation_0.50",
+      "n": 741,
+      "mean_path_error": 0.12099562274574484,
+      "mean_endpoint_error": 0.17327544832728814,
+      "mean_requests": 0.6963562753036437,
+      "mean_cost": 0.6963562753036437,
+      "mean_wait_exposure": 0.13927125506072874
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.05",
+      "n": 741,
+      "mean_path_error": 0.1152393569222071,
+      "mean_endpoint_error": 0.23534224139183085,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.10",
+      "n": 741,
+      "mean_path_error": 0.09999851357563855,
+      "mean_endpoint_error": 0.21287111845144496,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.15",
+      "n": 741,
+      "mean_path_error": 0.08901934497506224,
+      "mean_endpoint_error": 0.18068946323527427,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.20",
+      "n": 741,
+      "mean_path_error": 0.08540170221448333,
+      "mean_endpoint_error": 0.1502926518108535,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.25",
+      "n": 741,
+      "mean_path_error": 0.08604316164449607,
+      "mean_endpoint_error": 0.11272106853363435,
+      "mean_requests": 2.0,
+      "mean_cost": 2.0,
+      "mean_wait_exposure": 0.39999999999999997
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.30",
+      "n": 741,
+      "mean_path_error": 0.08979337583381863,
+      "mean_endpoint_error": 0.1332291123088564,
+      "mean_requests": 1.9676113360323886,
+      "mean_cost": 1.9676113360323886,
+      "mean_wait_exposure": 0.3935222672064777
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.35",
+      "n": 741,
+      "mean_path_error": 0.09257631624223196,
+      "mean_endpoint_error": 0.13889485606808852,
+      "mean_requests": 1.5802968960863697,
+      "mean_cost": 1.5802968960863697,
+      "mean_wait_exposure": 0.31605937921727395
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.40",
+      "n": 741,
+      "mean_path_error": 0.09612300217125733,
+      "mean_endpoint_error": 0.14282109286357092,
+      "mean_requests": 1.369770580296896,
+      "mean_cost": 1.369770580296896,
+      "mean_wait_exposure": 0.2739541160593792
+    },
+    {
+      "mask_duration_s": 2.0,
+      "policy": "worst_validation_environment_0.50",
+      "n": 741,
+      "mean_path_error": 0.10254953475461717,
+      "mean_endpoint_error": 0.13057864118222726,
+      "mean_requests": 1.155195681511471,
+      "mean_cost": 1.155195681511471,
+      "mean_wait_exposure": 0.23103913630229417
+    }
+  ]
+}

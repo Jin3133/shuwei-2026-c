@@ -1,0 +1,20 @@
+experiment_id: 20261121_22_q2_frozen_test
+purpose: One-time official Q2 test replay of validation-frozen sample-specific uncertainty policies.
+split: test
+return_delay_s: 0.2
+request_cost: 1.0
+request_budget: 2
+fixed_interval_s: 0.5
+uncertainty_thresholds_m: []
+calibration_thresholds_m:
+  pooled_validation: [0.25]
+  worst_validation_environment: [0.35]
+shrinkage_decay: 0.5866147
+objective_request_weight_m: 0.015
+objective_request_weights_m: [0.0, 0.005, 0.01, 0.015, 0.02, 0.025]
+model_config: configs/q1_delivery_gru_gaussian.yaml
+checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+normalization: work/incoming/model_delivery_20261120/model-delivery/normalization.json
+robust_calibration_report: experiments/20261121_20_q1_robust_calibration/results.json
+private_scoring_table: work/incoming/model_delivery_20261120/model-delivery/q2_masks.parquet
+information_rule: Model, calibration scales, thresholds, delay, request budget, shrinkage, and objective weight were frozen before official test replay. Test targets are never exposed to the policy and are not used for further tuning.
