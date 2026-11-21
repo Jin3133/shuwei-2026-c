@@ -92,6 +92,14 @@ class ScenarioSimulator:
             "jobs": {j: {"reviews": r.reviews, "attempted": r.attempted, "completed": r.completed, "completion_s": r.completion_s} for j, r in self.state.jobs.items()},
         }
 
+    def visible_prefix_s(self, job_id: str, levels=(0.2, 0.6, 1.0)) -> float | None:
+        """Return the legally visible prefix, or None before job release."""
+        if job_id not in self.jobs: raise KeyError(job_id)
+        if self.jobs[job_id].release_s > self.state.now_s: return None
+        reviews = self.state.jobs[job_id].reviews
+        if reviews >= len(levels): raise ValueError("Visible-prefix levels do not cover review state")
+        return float(levels[reviews])
+
     def _invalid(self, action, reason):
         self.state.invalid_actions += 1; self.state.valid_protocol = False; self.state.stopped = True
         self.state.log.append({"time_s": self.state.now_s, "action": type(action).__name__.lower(), "status": "invalid", "reason": reason})

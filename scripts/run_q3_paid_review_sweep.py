@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "scripts"))
 from shuwei_c.config import load_config
 from shuwei_c.scheduling.simulator import Execute, Job, Review, ScenarioConfig, ScenarioSimulator
-from run_q3_nominal_scheduling import aggregate, choose_action, read_csv
+from run_q3_nominal_scheduling import aggregate, choose_action, read_csv, visible_estimates
 
 
 def build_predictions(rows, cfg, corrections):
@@ -115,9 +115,11 @@ def main():
                 while not sim.state.stopped:
                     estimates = {}
                     for job_id, unit in sampled.items():
-                        prefix = cfg["prefixes_s"][sim.state.jobs[job_id].reviews]
-                        pred = predictions[unit["unit_id"]][float(prefix)]; fraction = float(cfg["reservation_fraction"])
+                        prefix = sim.visible_prefix_s(job_id, cfg["prefixes_s"])
+                        if prefix is None: continue
+                        pred = predictions[unit["unit_id"]][prefix]; fraction = float(cfg["reservation_fraction"])
                         estimates[job_id] = {"q50": pred["q50"], "q80": pred["q50"] + fraction * (pred["q80"] - pred["q50"]), "spread": pred["q80"] - pred["q50"]}
+                    estimates = visible_estimates(sim, jobs, estimates)
                     action = choose_action(sim, jobs, estimates, cfg["ordering"]["rule"], float(cfg["scenario"]["beta_s"]), float(cfg["ordering"]["lookahead_factor"]))
                     if isinstance(action, Execute) and can_review(sim, action.job_id):
                         runtime = sim.state.jobs[action.job_id]

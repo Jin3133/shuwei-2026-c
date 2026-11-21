@@ -10,7 +10,7 @@ import pyarrow.parquet as pq
 ROOT=Path(__file__).resolve().parents[1]; sys.path[:0]=[str(ROOT),str(ROOT/'scripts')]
 from shuwei_c.config import load_config
 from shuwei_c.scheduling.simulator import Job,ScenarioConfig,ScenarioSimulator
-from run_q3_nominal_scheduling import aggregate,build_predictors,choose_action,read_csv
+from run_q3_nominal_scheduling import aggregate,build_predictors,choose_action,read_csv,visible_estimates
 from run_q3_paid_review_sweep import build_random_forest_predictions
 
 def main():
@@ -37,7 +37,9 @@ def main():
                 for jid,unit in sampled.items():
                     q50,q80=predictions[unit['unit_id']][v['model']]; q50*=alpha; q80*=alpha; f=float(v['reserve_fraction']); estimates[jid]={'q50':q50,'q80':q50+f*(q80-q50)}
                 sim=ScenarioSimulator(jobs,realized,scenario)
-                while not sim.state.stopped: sim.step(choose_action(sim,jobs,estimates,v['ordering'],beta,float(c['lookahead_factor'])))
+                while not sim.state.stopped:
+                    current_estimates=visible_estimates(sim,jobs,estimates)
+                    sim.step(choose_action(sim,jobs,current_estimates,v['ordering'],beta,float(c['lookahead_factor'])))
                 trials.append({'case_id':case_id,'seed':int(seed),'variant':v['name'],'model':v['model'],'ordering':v['ordering'],'reserve_fraction':v['reserve_fraction'],'ablation':v['ablation'],**sim.metrics(),'sampled_units':';'.join(sampled[j.job_id]['unit_id'] for j in jobs)})
     a.trials_csv.parent.mkdir(parents=True,exist_ok=True)
     with a.trials_csv.open('w',encoding='utf-8',newline='') as f: w=csv.DictWriter(f,fieldnames=list(trials[0]),lineterminator='\n'); w.writeheader(); w.writerows(trials)

@@ -73,6 +73,16 @@ def build_predictors(rows, cfg, correction):
     return predictions
 
 
+def visible_estimates(sim, jobs, estimates):
+    """Expose estimates only for released, not-yet-attempted jobs."""
+    state = sim.state
+    visible_ids = {
+        job.job_id for job in jobs
+        if job.release_s <= state.now_s and not state.jobs[job.job_id].attempted
+    }
+    return {job_id: estimates[job_id] for job_id in visible_ids if job_id in estimates}
+
+
 def choose_action(sim, jobs, estimates, ordering, beta, lookahead_factor):
     state, config = sim.state, sim.config
     candidates = []
@@ -202,7 +212,8 @@ def main():
                     estimates[job_id] = {"q50": q50, "q80": q50 + reserve_fraction * (q80 - q50)}
                 sim = ScenarioSimulator(jobs, realized, scenario)
                 while not sim.state.stopped:
-                    action = choose_action(sim, jobs, estimates, ordering, float(cfg["scenario"]["beta_s"]), float(cfg["ordering"]["lookahead_factor"]))
+                    current_estimates = visible_estimates(sim, jobs, estimates)
+                    action = choose_action(sim, jobs, current_estimates, ordering, float(cfg["scenario"]["beta_s"]), float(cfg["ordering"]["lookahead_factor"]))
                     sim.step(action)
                 result = {"case_id": case_id, "seed": int(seed), "policy": policy, **sim.metrics()}
                 result["sampled_units"] = ";".join(sampled[j.job_id]["unit_id"] for j in jobs)

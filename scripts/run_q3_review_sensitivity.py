@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "scripts")]
 from shuwei_c.config import load_config
 from shuwei_c.scheduling.simulator import Execute, Job, Review, ScenarioConfig, ScenarioSimulator
-from run_q3_nominal_scheduling import aggregate, choose_action, read_csv
+from run_q3_nominal_scheduling import aggregate, choose_action, read_csv, visible_estimates
 from run_q3_paid_review_sweep import build_predictions, can_review
 
 
@@ -58,10 +58,13 @@ def main():
                     while not sim.state.stopped:
                         estimates = {}
                         for job_id, unit in sampled.items():
-                            prefix = float(cfg["prefixes_s"][sim.state.jobs[job_id].reviews]); pred = predictions[unit["unit_id"]][prefix]
+                            prefix = sim.visible_prefix_s(job_id, cfg["prefixes_s"])
+                            if prefix is None: continue
+                            pred = predictions[unit["unit_id"]][prefix]
                             q50 = cond["alpha"] * pred["q50"]; q80 = cond["alpha"] * pred["q80"]
                             fraction = float(cfg["reservation_fraction"])
                             estimates[job_id] = {"q50": q50, "q80": q50 + fraction * (q80 - q50), "spread": q80 - q50}
+                        estimates = visible_estimates(sim, jobs, estimates)
                         action = choose_action(sim, jobs, estimates, cfg["ordering"]["rule"], cond["beta_s"], float(cfg["ordering"]["lookahead_factor"]))
                         if policy == "uncertainty_review" and isinstance(action, Execute) and can_review(sim, action.job_id):
                             if estimates[action.job_id]["spread"] > float(cfg["spread_threshold_s"]): action = Review(action.job_id)

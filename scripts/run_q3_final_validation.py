@@ -10,7 +10,7 @@ import numpy as np
 ROOT=Path(__file__).resolve().parents[1]; sys.path[:0]=[str(ROOT),str(ROOT/'scripts')]
 from shuwei_c.config import load_config
 from shuwei_c.scheduling.simulator import Execute,Job,Review,ScenarioConfig,ScenarioSimulator
-from run_q3_nominal_scheduling import aggregate,choose_action,read_csv
+from run_q3_nominal_scheduling import aggregate,choose_action,read_csv,visible_estimates
 from run_q3_paid_review_sweep import build_predictions,can_review
 from run_q3_value_of_information import learn_value
 
@@ -36,12 +36,15 @@ def main():
                     while not sim.state.stopped:
                         estimates={}
                         for jid,unit in sampled.items():
-                            prefix=float(c['prefixes_s'][sim.state.jobs[jid].reviews]); pred=predictions[unit['unit_id']][prefix]; q50=alpha*pred['q50']; q80=alpha*pred['q80']; f=float(c['reservation_fraction'])
+                            prefix=sim.visible_prefix_s(jid,c['prefixes_s'])
+                            if prefix is None: continue
+                            pred=predictions[unit['unit_id']][prefix]; q50=alpha*pred['q50']; q80=alpha*pred['q80']; f=float(c['reservation_fraction'])
                             estimates[jid]={'q50':q50,'q80':q50+f*(q80-q50)}
+                        estimates=visible_estimates(sim,jobs,estimates)
                         action=choose_action(sim,jobs,estimates,c['ordering']['rule'],beta,float(c['ordering']['lookahead_factor']))
                         active=policy=='final_case_adaptive_voi' and case_id in c['final_policy']['active_cases']
                         if active and isinstance(action,Execute) and sim.state.jobs[action.job_id].reviews<int(c['final_policy']['max_reviews_per_job']) and can_review(sim,action.job_id):
-                            prefix=float(c['prefixes_s'][sim.state.jobs[action.job_id].reviews]); gain=alpha*values[sampled[action.job_id]['unit_id']].get(prefix,-1e9)
+                            prefix=sim.visible_prefix_s(action.job_id,c['prefixes_s']); gain=alpha*values[sampled[action.job_id]['unit_id']].get(prefix,-1e9)
                             job=next(j for j in jobs if j.job_id==action.job_id); finish=sim.state.now_s+estimates[action.job_id]['q50']+beta; slack=job.due_s-finish
                             decision_gain=gain*(1.0+job.weight/max(abs(slack),1.0))
                             if decision_gain>float(c['final_policy']['gain_threshold_s']): action=Review(action.job_id)

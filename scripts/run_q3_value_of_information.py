@@ -12,7 +12,7 @@ from sklearn.model_selection import GroupKFold
 ROOT=Path(__file__).resolve().parents[1]; sys.path[:0]=[str(ROOT),str(ROOT/'scripts')]
 from shuwei_c.config import load_config
 from shuwei_c.scheduling.simulator import Execute,Job,Review,ScenarioConfig,ScenarioSimulator
-from run_q3_nominal_scheduling import aggregate,choose_action,read_csv
+from run_q3_nominal_scheduling import aggregate,choose_action,read_csv,visible_estimates
 from run_q3_paid_review_sweep import build_predictions,can_review
 
 EXCLUDED={"prefix_id","segment_id","episode_uuid","dataset","split","family_id","target_duration_s","prefix_duration_s"}
@@ -68,12 +68,15 @@ def main():
                 while not sim.state.stopped:
                     estimates={}
                     for jid,unit in sampled.items():
-                        prefix=float(c['prefixes_s'][sim.state.jobs[jid].reviews]); pred=predictions[unit['unit_id']][prefix]; f=float(c['reservation_fraction']); estimates[jid]={'q50':pred['q50'],'q80':pred['q50']+f*(pred['q80']-pred['q50'])}
+                        prefix=sim.visible_prefix_s(jid,c['prefixes_s'])
+                        if prefix is None: continue
+                        pred=predictions[unit['unit_id']][prefix]; f=float(c['reservation_fraction']); estimates[jid]={'q50':pred['q50'],'q80':pred['q50']+f*(pred['q80']-pred['q50'])}
+                    estimates=visible_estimates(sim,jobs,estimates)
                     action=choose_action(sim,jobs,estimates,c['ordering']['rule'],float(c['scenario']['beta_s']),float(c['ordering']['lookahead_factor']))
                     policy_review_limit=int(policy.get('max_reviews_per_job',scenario.max_reviews_per_job))
                     case_active=case_id in policy.get('active_cases',[case_id])
                     if policy['mode']=='voi' and case_active and isinstance(action,Execute) and sim.state.jobs[action.job_id].reviews<policy_review_limit and can_review(sim,action.job_id):
-                        rt=sim.state.jobs[action.job_id]; prefix=float(c['prefixes_s'][rt.reviews]); gain=values[sampled[action.job_id]['unit_id']].get(prefix,-1e9)
+                        prefix=sim.visible_prefix_s(action.job_id,c['prefixes_s']); gain=values[sampled[action.job_id]['unit_id']].get(prefix,-1e9)
                         job=next(j for j in jobs if j.job_id==action.job_id); estimated_finish=sim.state.now_s+estimates[action.job_id]['q50']+float(c['scenario']['beta_s']); slack=job.due_s-estimated_finish
                         decision_gain=gain*(1.0+job.weight/max(abs(slack),1.0))
                         if decision_gain>float(policy['gain_threshold_s']): action=Review(action.job_id)
