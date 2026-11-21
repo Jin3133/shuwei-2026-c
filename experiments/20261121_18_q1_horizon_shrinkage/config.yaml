@@ -1,0 +1,21 @@
+experiment_id: 20261121_18_q1_horizon_shrinkage
+purpose: Correct stable long-horizon overprediction with leave-one-environment-out scalar shrinkage of frozen GRU displacement heads.
+source: work/incoming/model_delivery_20261120/model-delivery/q1_windows.parquet
+validation_npz: work/windows/delivery_v1/q1_validation.npz
+official_records: work/official_index_audit/official_records.csv
+split: validation
+horizons_s: [0.2, 0.5, 1.0]
+models:
+  mse_gru:
+    config: configs/q1_delivery_gru_mse.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_mse/best.pt
+  gaussian_gru:
+    config: configs/q1_delivery_gru_gaussian.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+shrinkage:
+  lower: 0.0
+  upper: 1.0
+  crossfit_group: environment_id
+  apply_horizons_s: [0.5, 1.0]
+bootstrap: {replicates: 10000, seed: 2026}
+information_rule: Each validation environment is transformed using coefficients fitted only on the other validation environments; full-validation coefficients are exported solely for frozen test inference.

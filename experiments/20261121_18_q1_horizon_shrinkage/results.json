@@ -1,0 +1,225 @@
+{
+  "experiment_id": "20261121_18_q1_horizon_shrinkage",
+  "git_revision": "13a7cd1bd88199bc6a1ab22ce94754445e8b2b1a",
+  "split": "validation",
+  "windows": 12141,
+  "environments": 4,
+  "coefficients": {
+    "mse_gru": {
+      "full_validation_for_frozen_test": [
+        1.0,
+        0.7785653471946716,
+        0.6015791893005371
+      ],
+      "leave_one_environment_out": {
+        "hospitality_x_restaurant_0004": [
+          1.0,
+          0.723160982131958,
+          0.5351177453994751
+        ],
+        "logistics_x_courier_station_0022": [
+          1.0,
+          0.9042782187461853,
+          0.6868269443511963
+        ],
+        "retail_x_supermarket_0074": [
+          1.0,
+          0.7293973565101624,
+          0.563988447189331
+        ],
+        "retail_x_supermarket_0147": [
+          1.0,
+          0.7799342274665833,
+          0.6299914717674255
+        ]
+      }
+    },
+    "gaussian_gru": {
+      "full_validation_for_frozen_test": [
+        1.0,
+        0.7353421449661255,
+        0.5491365194320679
+      ],
+      "leave_one_environment_out": {
+        "hospitality_x_restaurant_0004": [
+          1.0,
+          0.6858265995979309,
+          0.4916495978832245
+        ],
+        "logistics_x_courier_station_0022": [
+          1.0,
+          0.8513132333755493,
+          0.6485282778739929
+        ],
+        "retail_x_supermarket_0074": [
+          1.0,
+          0.6939860582351685,
+          0.5175507664680481
+        ],
+        "retail_x_supermarket_0147": [
+          1.0,
+          0.733396053314209,
+          0.5620640516281128
+        ]
+      }
+    }
+  },
+  "per_horizon": [
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.029808135703206062,
+      "rmse_m": 0.03899183124303818,
+      "median_error_m": 0.022963836789131165,
+      "p90_error_m": 0.058950308710336685
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07766871899366379,
+      "rmse_m": 0.10063658654689789,
+      "median_error_m": 0.059840552508831024,
+      "p90_error_m": 0.16228483617305756
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.15358641743659973,
+      "rmse_m": 0.197043314576149,
+      "median_error_m": 0.12066426873207092,
+      "p90_error_m": 0.31093284487724304
+    },
+    {
+      "model": "mse_gru_crossfit_shrink",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.029808135703206062,
+      "rmse_m": 0.03899183124303818,
+      "median_error_m": 0.022963836789131165,
+      "p90_error_m": 0.058950308710336685
+    },
+    {
+      "model": "mse_gru_crossfit_shrink",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07576211541891098,
+      "rmse_m": 0.09999220073223114,
+      "median_error_m": 0.05699587240815163,
+      "p90_error_m": 0.1600225567817688
+    },
+    {
+      "model": "mse_gru_crossfit_shrink",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.14253230392932892,
+      "rmse_m": 0.18995463848114014,
+      "median_error_m": 0.10968165844678879,
+      "p90_error_m": 0.2930014133453369
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.026807790622115135,
+      "rmse_m": 0.03723238408565521,
+      "median_error_m": 0.020273691043257713,
+      "p90_error_m": 0.05526665970683098,
+      "gaussian_nll": -2.587312936782837,
+      "raw_joint_95_coverage": 0.821349147516679,
+      "mean_axis_std_m": 0.01728876121342182,
+      "uncertainty_error_correlation": 0.5508322103579157
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07841264456510544,
+      "rmse_m": 0.10223279148340225,
+      "median_error_m": 0.06010859087109566,
+      "p90_error_m": 0.16472245752811432,
+      "gaussian_nll": -1.5023061037063599,
+      "raw_joint_95_coverage": 0.8336216127172391,
+      "mean_axis_std_m": 0.0515553243458271,
+      "uncertainty_error_correlation": 0.5002441837388055
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.15700720250606537,
+      "rmse_m": 0.20180362462997437,
+      "median_error_m": 0.12456086277961731,
+      "p90_error_m": 0.3156011402606964,
+      "gaussian_nll": -0.7274540662765503,
+      "raw_joint_95_coverage": 0.8668149246355324,
+      "mean_axis_std_m": 0.11268308013677597,
+      "uncertainty_error_correlation": 0.3940260042133429
+    },
+    {
+      "model": "gaussian_gru_crossfit_shrink",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.026807790622115135,
+      "rmse_m": 0.03723238408565521,
+      "median_error_m": 0.020273691043257713,
+      "p90_error_m": 0.05526665970683098,
+      "gaussian_nll": -2.587312936782837,
+      "raw_joint_95_coverage": 0.821349147516679,
+      "mean_axis_std_m": 0.01728876121342182,
+      "uncertainty_error_correlation": 0.5508322103579157
+    },
+    {
+      "model": "gaussian_gru_crossfit_shrink",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07511302083730698,
+      "rmse_m": 0.10014630854129791,
+      "median_error_m": 0.05617854744195938,
+      "p90_error_m": 0.15913864970207214,
+      "gaussian_nll": -1.5177620649337769,
+      "raw_joint_95_coverage": 0.8411168766987892,
+      "mean_axis_std_m": 0.0515553243458271,
+      "uncertainty_error_correlation": 0.4706744530834979
+    },
+    {
+      "model": "gaussian_gru_crossfit_shrink",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.142874613404274,
+      "rmse_m": 0.1914704591035843,
+      "median_error_m": 0.10983171314001083,
+      "p90_error_m": 0.2961897552013397,
+      "gaussian_nll": -0.753021240234375,
+      "raw_joint_95_coverage": 0.8682975043241907,
+      "mean_axis_std_m": 0.11268308013677597,
+      "uncertainty_error_correlation": 0.2825354905856765
+    }
+  ],
+  "paired_effects": [
+    {
+      "model": "mse_gru",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.004818880930542946,
+      "environment_bootstrap_95_ci_m": [
+        -0.006779465824365616,
+        -0.002742566168308258
+      ],
+      "environment_win_rate": 1.0
+    },
+    {
+      "model": "gaussian_gru",
+      "metric": "ade_m",
+      "environments": 4,
+      "mean_delta_m": -0.00610719807446003,
+      "environment_bootstrap_95_ci_m": [
+        -0.007908392697572708,
+        -0.004059670493006706
+      ],
+      "environment_win_rate": 1.0
+    }
+  ]
+}

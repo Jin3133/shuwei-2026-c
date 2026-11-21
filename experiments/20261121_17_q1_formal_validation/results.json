@@ -1,0 +1,427 @@
+{
+  "experiment_id": "20261121_17_q1_formal_validation",
+  "git_revision": "13a7cd1bd88199bc6a1ab22ce94754445e8b2b1a",
+  "split": "validation",
+  "windows": 12141,
+  "episodes": 7,
+  "quality_note": "All delivered Q1 validation input-quality flags equal 1; quality stratification is not identifiable in Q1 windows.",
+  "checkpoint_metrics": {
+    "mse_gru": {
+      "ade_m": 0.08702109754085541,
+      "rmse_m": 0.1297101378440857,
+      "fde_m": 0.15358643233776093,
+      "loss": 0.005763469098989542,
+      "epoch": 8,
+      "train_loss": 0.005444244498058277,
+      "learning_rate": 0.001
+    },
+    "gaussian_gru": {
+      "ade_m": 0.08740920573472977,
+      "rmse_m": 0.13236628472805023,
+      "fde_m": 0.15700717270374298,
+      "coverage_95": 0.8405952453613281,
+      "mean_std_m": 0.06050904467701912,
+      "loss": -1.5946420058608055,
+      "epoch": 27,
+      "train_loss": -1.7271121403750251,
+      "learning_rate": 6.25e-05
+    }
+  },
+  "per_horizon": [
+    {
+      "model": "last_position",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.041237443685531616,
+      "rmse_m": 0.0570191815495491,
+      "median_error_m": 0.028536127880215645,
+      "p90_error_m": 0.09339679032564163
+    },
+    {
+      "model": "last_position",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.08876729011535645,
+      "rmse_m": 0.12358409911394119,
+      "median_error_m": 0.06216966360807419,
+      "p90_error_m": 0.20449627935886383
+    },
+    {
+      "model": "last_position",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.150972381234169,
+      "rmse_m": 0.20722952485084534,
+      "median_error_m": 0.1136634573340416,
+      "p90_error_m": 0.3262907862663269
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.02999020829313936,
+      "rmse_m": 0.043321355193196735,
+      "median_error_m": 0.022726888805538643,
+      "p90_error_m": 0.059967844603958965
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.10043054672228624,
+      "rmse_m": 0.13326152452906906,
+      "median_error_m": 0.08007176887225684,
+      "p90_error_m": 0.20449400213403116
+    },
+    {
+      "model": "constant_velocity",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.23688351647692638,
+      "rmse_m": 0.3019959630459604,
+      "median_error_m": 0.1955118581754136,
+      "p90_error_m": 0.4663298826630941
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.04455484077334404,
+      "rmse_m": 0.05748900771141052,
+      "median_error_m": 0.035881828516721725,
+      "p90_error_m": 0.09216892719268799
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.11402756720781326,
+      "rmse_m": 0.1427871435880661,
+      "median_error_m": 0.09410734474658966,
+      "p90_error_m": 0.23414643108844757
+    },
+    {
+      "model": "kalman",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.23757502436637878,
+      "rmse_m": 0.2923862040042877,
+      "median_error_m": 0.19861076772212982,
+      "p90_error_m": 0.47536978125572205
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.029808135703206062,
+      "rmse_m": 0.03899183124303818,
+      "median_error_m": 0.022963836789131165,
+      "p90_error_m": 0.058950308710336685
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07766871899366379,
+      "rmse_m": 0.10063658654689789,
+      "median_error_m": 0.059840552508831024,
+      "p90_error_m": 0.16228483617305756
+    },
+    {
+      "model": "mse_gru",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.15358641743659973,
+      "rmse_m": 0.197043314576149,
+      "median_error_m": 0.12066426873207092,
+      "p90_error_m": 0.31093284487724304
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.2,
+      "n": 12141,
+      "mean_error_m": 0.026807790622115135,
+      "rmse_m": 0.03723238408565521,
+      "median_error_m": 0.020273691043257713,
+      "p90_error_m": 0.05526665970683098,
+      "gaussian_nll": -2.587312936782837,
+      "raw_joint_95_coverage": 0.821349147516679,
+      "mean_axis_std_m": 0.01728876121342182,
+      "uncertainty_error_correlation": 0.5508322103579157
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 0.5,
+      "n": 12141,
+      "mean_error_m": 0.07841264456510544,
+      "rmse_m": 0.10223279148340225,
+      "median_error_m": 0.06010859087109566,
+      "p90_error_m": 0.16472245752811432,
+      "gaussian_nll": -1.5023061037063599,
+      "raw_joint_95_coverage": 0.8336216127172391,
+      "mean_axis_std_m": 0.0515553243458271,
+      "uncertainty_error_correlation": 0.5002441837388055
+    },
+    {
+      "model": "gaussian_gru",
+      "horizon_s": 1.0,
+      "n": 12141,
+      "mean_error_m": 0.15700720250606537,
+      "rmse_m": 0.20180362462997437,
+      "median_error_m": 0.12456086277961731,
+      "p90_error_m": 0.3156011402606964,
+      "gaussian_nll": -0.7274540662765503,
+      "raw_joint_95_coverage": 0.8668149246355324,
+      "mean_axis_std_m": 0.11268308013677597,
+      "uncertainty_error_correlation": 0.3940260042133429
+    }
+  ],
+  "stratified": [
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "last_position",
+      "n_windows": 2614,
+      "ade_m": 0.09294137358665466,
+      "fde_1s_m": 0.14698994159698486
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "constant_velocity",
+      "n_windows": 2614,
+      "ade_m": 0.13378724478917006,
+      "fde_1s_m": 0.25880051939343907
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "kalman",
+      "n_windows": 2614,
+      "ade_m": 0.14724864065647125,
+      "fde_1s_m": 0.2593238949775696
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "mse_gru",
+      "n_windows": 2614,
+      "ade_m": 0.09407000988721848,
+      "fde_1s_m": 0.1675821840763092
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoDemo",
+      "model": "gaussian_gru",
+      "n_windows": 2614,
+      "ade_m": 0.09386792778968811,
+      "fde_1s_m": 0.16913443803787231
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "last_position",
+      "n_windows": 8829,
+      "ade_m": 0.08678117394447327,
+      "fde_1s_m": 0.1381624937057495
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "constant_velocity",
+      "n_windows": 8829,
+      "ade_m": 0.11537693157776666,
+      "fde_1s_m": 0.22114962756739814
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "kalman",
+      "n_windows": 8829,
+      "ade_m": 0.12016989290714264,
+      "fde_1s_m": 0.2148091197013855
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "mse_gru",
+      "n_windows": 8829,
+      "ade_m": 0.07999385893344879,
+      "fde_1s_m": 0.1376325786113739
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoPro",
+      "model": "gaussian_gru",
+      "n_windows": 8829,
+      "ade_m": 0.08062177151441574,
+      "fde_1s_m": 0.1420702040195465
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "last_position",
+      "n_windows": 698,
+      "ade_m": 0.18334463238716125,
+      "fde_1s_m": 0.32791876792907715
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "constant_velocity",
+      "n_windows": 698,
+      "ade_m": 0.16919426927013778,
+      "fde_1s_m": 0.3538225702856093
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "kalman",
+      "n_windows": 698,
+      "ade_m": 0.22544606029987335,
+      "fde_1s_m": 0.4440920650959015
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "mse_gru",
+      "n_windows": 698,
+      "ade_m": 0.149510458111763,
+      "fde_1s_m": 0.3029727041721344
+    },
+    {
+      "stratum": "dataset",
+      "level": "EgoStandard",
+      "model": "gaussian_gru",
+      "n_windows": 698,
+      "ade_m": 0.14907562732696533,
+      "fde_1s_m": 0.30052846670150757
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "last_position",
+      "n_windows": 6048,
+      "ade_m": 0.0919317826628685,
+      "fde_1s_m": 0.148757204413414
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "constant_velocity",
+      "n_windows": 6048,
+      "ade_m": 0.11857104386016078,
+      "fde_1s_m": 0.23018604046050964
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "kalman",
+      "n_windows": 6048,
+      "ade_m": 0.12938444316387177,
+      "fde_1s_m": 0.23295500874519348
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "mse_gru",
+      "n_windows": 6048,
+      "ade_m": 0.0856940746307373,
+      "fde_1s_m": 0.1516159474849701
+    },
+    {
+      "stratum": "hand",
+      "level": "left",
+      "model": "gaussian_gru",
+      "n_windows": 6048,
+      "ade_m": 0.08554239571094513,
+      "fde_1s_m": 0.15406253933906555
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "last_position",
+      "n_windows": 6093,
+      "ade_m": 0.09537353366613388,
+      "fde_1s_m": 0.15317118167877197
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "constant_velocity",
+      "n_windows": 6093,
+      "ade_m": 0.12626993491930022,
+      "fde_1s_m": 0.24353152812099146
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "kalman",
+      "n_windows": 6093,
+      "ade_m": 0.13470080494880676,
+      "fde_1s_m": 0.24216093122959137
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "mse_gru",
+      "n_windows": 6093,
+      "ade_m": 0.08833831548690796,
+      "fde_1s_m": 0.15554235875606537
+    },
+    {
+      "stratum": "hand",
+      "level": "right",
+      "model": "gaussian_gru",
+      "n_windows": 6093,
+      "ade_m": 0.0892622247338295,
+      "fde_1s_m": 0.1599300652742386
+    }
+  ],
+  "paired_effects": [
+    {
+      "final_minus": "last_position",
+      "metric": "ade_m",
+      "episodes": 7,
+      "mean_delta_m": -0.009157363857541765,
+      "episode_bootstrap_95_ci_m": [
+        -0.020555001284394945,
+        0.0007067567535809108
+      ],
+      "episode_win_rate": 0.7142857142857143
+    },
+    {
+      "final_minus": "constant_velocity",
+      "metric": "ade_m",
+      "episodes": 7,
+      "mean_delta_m": -0.03373759479564593,
+      "episode_bootstrap_95_ci_m": [
+        -0.04429423393182475,
+        -0.024496407539609546
+      ],
+      "episode_win_rate": 1.0
+    },
+    {
+      "final_minus": "kalman",
+      "metric": "ade_m",
+      "episodes": 7,
+      "mean_delta_m": -0.04981606879404613,
+      "episode_bootstrap_95_ci_m": [
+        -0.06689306561435972,
+        -0.03404616990259716
+      ],
+      "episode_win_rate": 1.0
+    },
+    {
+      "final_minus": "mse_gru",
+      "metric": "ade_m",
+      "episodes": 7,
+      "mean_delta_m": 2.9685241835457938e-05,
+      "episode_bootstrap_95_ci_m": [
+        -0.0017279588750430516,
+        0.001486680337360927
+      ],
+      "episode_win_rate": 0.42857142857142855
+    }
+  ]
+}

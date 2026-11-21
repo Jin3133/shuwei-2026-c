@@ -1,0 +1,21 @@
+experiment_id: 20261121_17_q1_formal_validation
+purpose: Formal physical-unit validation of Q1 kinematic baselines and frozen GRU models at all delivered horizons.
+source: work/incoming/model_delivery_20261120/model-delivery/q1_windows.parquet
+validation_npz: work/windows/delivery_v1/q1_validation.npz
+split: validation
+horizons_s: [0.2, 0.5, 1.0]
+models:
+  mse_gru:
+    config: configs/q1_delivery_gru_mse.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_mse/best.pt
+  gaussian_gru:
+    config: configs/q1_delivery_gru_gaussian.yaml
+    checkpoint: work/checkpoints/q1_delivery_gru_gaussian/best.pt
+kalman:
+  process_variance: 0.001
+  measurement_variance: 0.001
+bootstrap:
+  unit: episode_uuid
+  replicates: 10000
+  seed: 2026
+information_rule: Model checkpoints and baseline definitions are frozen; all displacement calculations use metres and seconds.
