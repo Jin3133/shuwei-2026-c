@@ -76,13 +76,25 @@ def build_predictors(rows, cfg, correction):
 def choose_action(sim, jobs, estimates, ordering, beta, lookahead_factor):
     state, config = sim.state, sim.config
     candidates = []
-    mean_process = np.mean([max(v["q50"] + beta, config.reserve_min_s) for v in estimates.values()])
-    for job in jobs:
-        runtime = state.jobs[job.job_id]
-        if runtime.attempted or job.release_s > state.now_s:
-            continue
-        if any(not state.jobs[p].completed for p in job.predecessors):
-            continue
+    # Only released, unfinished and precedence-feasible jobs are visible to the
+    # current ordering decision. In particular, future jobs must not affect the
+    # ATC normalization through their duration estimates.
+    ready_jobs = [
+        job for job in jobs
+        if not state.jobs[job.job_id].attempted
+        and job.release_s <= state.now_s
+        and all(state.jobs[p].completed for p in job.predecessors)
+    ]
+    if ready_jobs:
+        missing = [job.job_id for job in ready_jobs if job.job_id not in estimates]
+        if missing: raise KeyError(f"Missing visible estimates for ready jobs: {missing}")
+        mean_process = float(np.mean([
+            max(estimates[job.job_id]["q50"] + beta, config.reserve_min_s)
+            for job in ready_jobs
+        ]))
+    else:
+        mean_process = config.reserve_min_s
+    for job in ready_jobs:
         x0, y0 = config.zones[state.zone_id]
         x1, y1 = config.zones[job.zone_id]
         distance = math.hypot(x0 - x1, y0 - y1)

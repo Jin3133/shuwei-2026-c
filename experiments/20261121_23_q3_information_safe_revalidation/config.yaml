@@ -1,0 +1,37 @@
+experiment_id: 20261121_23_q3_information_safe_revalidation
+purpose: Revalidate the frozen Q3 policy after removing unreleased-job estimates from ATC normalization.
+task_root: /Users/j/Documents/study/数维杯/C_Problem_Data/C_Problem_Data/Restocking_Problem_and_Data/Restocking_Tasks_and_Constraints
+features: work/incoming/model_delivery_20261120/model-delivery/q3_prefix_features.parquet
+official_records: work/official_index_audit/official_records.csv
+calibration_results: experiments/20261121_11_q3_duration_model_benchmark/results.json
+train_split: train
+evaluation_split: validation
+prefixes_s: [0.2, 0.6, 1.0]
+model_kind: random_forest
+model:
+  n_estimators: 400
+  min_samples_leaf: 5
+  max_features: 0.8
+  random_state: 2026
+  n_jobs: -1
+value_model:
+  n_estimators: 300
+  min_samples_leaf: 8
+  max_features: 0.8
+  random_state: 2027
+  n_jobs: -1
+n_group_folds: 4
+reservation_fraction: 0.25
+ordering: {rule: apparent_tardiness_cost, lookahead_factor: 2.0}
+final_policy:
+  active_cases: [S2]
+  gain_threshold_s: 0.5
+  max_reviews_per_job: 1
+service_conditions:
+  - {alpha: 1.0, beta_s: 0.5, label: nominal}
+  - {alpha: 0.75, beta_s: 0.5, label: alpha_low}
+  - {alpha: 1.5, beta_s: 0.5, label: alpha_high}
+  - {alpha: 1.0, beta_s: 0.0, label: beta_low}
+  - {alpha: 1.0, beta_s: 1.0, label: beta_high}
+nominal: {alpha: 1.0, beta_s: 0.5}
+information_rule: ATC normalization, ranking, reservation, and review decisions may use estimates only for jobs released at the current simulator time; future-job estimates must be causally irrelevant.
